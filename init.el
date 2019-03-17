@@ -2,8 +2,22 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
-;;;;;;;;;;;;;;;;;;;; End Package Management ;;;;;;;;;;;;;;;;;;;;
 
+;;;; To install a package, simply add its name to 'pkg-list' and reload emacs
+
+;; Set 'pkg-list' as an array containing the packages
+(setq pkg-list '(magit
+		 color-theme-sanityinc-tomorrow))
+
+(dolist (pkg pkg-list)
+  ;; for each package in the package list
+  (unless (package-installed-p pkg)
+    ;; if pkg is not install, install it
+    (condition-case nil
+	(package-install pkg)
+      (error
+       (package-refresh-contents)))))
+;;;;;;;;;;;;;;;;;;;; End Package Management ;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;; Start Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
