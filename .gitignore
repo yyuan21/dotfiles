@@ -1,2 +1,5 @@
 # emacs' auto save list buffer
 auto-save-list/
+
+# elpa package folder
+elpa/
