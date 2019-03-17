@@ -6,3 +6,7 @@ elpa/
 
 # magit transient folder
 transient/
+
+# emacs temp files
+/#*
+*~
