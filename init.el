@@ -7,6 +7,7 @@
 
 ;; Set 'pkg-list' as an array containing the packages
 (setq pkg-list '(magit
+		 auto-complete
 		 color-theme-sanityinc-tomorrow))
 
 (dolist (pkg pkg-list)
@@ -18,6 +19,11 @@
       (error
        (package-refresh-contents)))))
 ;;;;;;;;;;;;;;;;;;;; End Package Management ;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;; Package Start: Auto-Complete ;;;;;;;;;;;;;;;;;;;;
+(require 'auto-complete)
+(global-auto-complete-mode t)
+;;;;;;;;;;;;;;;;;;;; Package End: Auto-Complete ;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;; Start Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
