@@ -3,3 +3,6 @@ auto-save-list/
 
 # elpa package folder
 elpa/
+
+# magit transient folder
+transient/
