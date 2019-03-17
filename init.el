@@ -1,10 +1,11 @@
-;;;;;;;;;;;;;;;;;;;; Melpa Package Archive ;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;; Start Package Management ;;;;;;;;;;;;;;;;;;;;
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+;;;;;;;;;;;;;;;;;;;; End Package Management ;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;;;;;;;;;;;;;;;;; auto-generated ;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;; Start Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -22,7 +23,7 @@
  '(fci-rule-color "#515151")
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(frame-background-mode (quote dark))
- '(package-selected-packages (quote (color-theme-sanityinc-tomorrow)))
+ '(package-selected-packages (quote (magit color-theme-sanityinc-tomorrow)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -51,3 +52,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+;;;;;;;;;;;;;;;;;;;; End Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
