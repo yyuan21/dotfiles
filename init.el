@@ -8,6 +8,7 @@
 ;; Set 'pkg-list' as an array containing the packages
 (setq pkg-list '(magit
 		 auto-complete
+		 solidity-mode
 		 color-theme-sanityinc-tomorrow))
 
 (dolist (pkg pkg-list)
@@ -24,6 +25,13 @@
 (require 'auto-complete)
 (global-auto-complete-mode t)
 ;;;;;;;;;;;;;;;;;;;; Package End: Auto-Complete ;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;; Package Start: Solidity-mode ;;;;;;;;;;;;;;;;;;;;
+(require 'solidity-mode)
+;; Set the default solity comment style as /* */
+(setq solidity-comment-style 'star)
+;;;;;;;;;;;;;;;;;;;; Package End: Solidity-mode ;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;; Start Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
