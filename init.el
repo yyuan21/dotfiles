@@ -7,6 +7,7 @@
 
 ;; Set 'pkg-list' as an array containing the packages
 (setq pkg-list '(magit
+		 pdf-tools
 		 auto-complete
 		 solidity-mode
 		 color-theme-sanityinc-tomorrow))

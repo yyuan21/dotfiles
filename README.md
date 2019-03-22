@@ -9,6 +9,10 @@
 
 add the package's name to 'pkg-list' in init.el and reload emacs
 
+## Dependencies
+
+ * pdf-tools: See official pdf-tools [repo](https://github.com/politza/pdf-tools PDF-Tools)
+
 ## Packages to-be-added
 
 * evil
@@ -39,7 +43,6 @@ add the package's name to 'pkg-list' in init.el and reload emacs
 * elfeed
 * yasnippet
 * yasnippet-snippets
-* pdf-tools
 * exwm
 * smex
 * minimap
