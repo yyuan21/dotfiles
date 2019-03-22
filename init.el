@@ -59,6 +59,7 @@
  '(fci-rule-color "#515151")
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(frame-background-mode (quote dark))
+ '(org-agenda-files (quote ("~/.emacs.d/README.org")))
  '(package-selected-packages (quote (magit color-theme-sanityinc-tomorrow)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
