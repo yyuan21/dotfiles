@@ -16,10 +16,8 @@ add the package's name to 'pkg-list' in init.el and reload emacs
 ## Packages to-be-added
 
 * evil
-* helm
 * tuareg
 * org
-* auto-complete
 * jedi
 * epc
 * projectile
@@ -41,8 +39,6 @@ add the package's name to 'pkg-list' in init.el and reload emacs
 * flycheck
 * flycheck-pos-tip
 * elfeed
-* yasnippet
-* yasnippet-snippets
 * exwm
 * smex
 * minimap
