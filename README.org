@@ -1,0 +1,42 @@
+
+* Emacs Configuration (.emacs.d)
+
+** List of Packages
+
+*** Magit
+*** color-theme-sanitynic-tomorrow
+
+** Add to Package List
+
+*** add the package's name to 'pkg-list' in init.el and reload emacs
+
+** Dependencies
+
+*** pdf-tools: See official pdf-tools [repo](https://github.com/politza/pdf-tools PDF-Tools)
+
+** Packages to-be-added [0%]
+
+*** TODO evil
+*** TODO tuareg
+*** TODO jedi
+*** TODO epc
+*** TODO projectile
+*** TODO which-key
+*** TODO ein
+*** TODO cython-mode
+*** TODO js-format
+*** TODO web-beautify
+*** TODO rjsx-mode
+*** TODO markdown-mode
+*** TODO multi-term
+*** TODO origami
+*** TODO auctex
+*** TODO auto-complete-auctex
+*** TODO multiple-cursors
+*** TODO nov
+*** TODO flycheck-pos-tip
+*** TODO elfeed
+*** TODO exwm
+*** TODO smex
+*** TODO minimap
+*** TODO protobuf-mode
