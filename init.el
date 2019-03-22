@@ -8,6 +8,7 @@
 ;; Set 'pkg-list' as an array containing the packages
 (setq pkg-list '(magit
 		 helm
+		 org
 		 flycheck
 		 pdf-tools
 		 auto-complete
