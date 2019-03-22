@@ -8,6 +8,7 @@
 ;; Set 'pkg-list' as an array containing the packages
 (setq pkg-list '(magit
 		 helm
+		 flycheck
 		 pdf-tools
 		 auto-complete
 		 solidity-mode
@@ -29,33 +30,15 @@
 ;;;;;;;;;;;;;;;;;;;; General Configuration Start ;;;;;;;;;;;;;;;;;;;;
 ;; Set auto-pair mode on
 (electric-pair-mode t)
+
+;; loads all *.el package config files in ./pkgs-config directory
+(defun load-directory (dir)
+      (let ((load-it (lambda (f)
+		       (load-file (concat (file-name-as-directory dir) f)))
+		     ))
+	(mapc load-it (directory-files dir nil "\\.el$"))))
+    (load-directory "./pkgs-config/")
 ;;;;;;;;;;;;;;;;;;;; General Configuration End ;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;; Package Start: helm ;;;;;;;;;;;;;;;;;;;;
-(require 'helm)
-(helm-mode 1)
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-;;;;;;;;;;;;;;;;;;;; Package End: helm ;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;; Package Start: Auto-Complete ;;;;;;;;;;;;;;;;;;;;
-(require 'auto-complete)
-(global-auto-complete-mode t)
-;;;;;;;;;;;;;;;;;;;; Package End: Auto-Complete ;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;; Package Start: Solidity-mode ;;;;;;;;;;;;;;;;;;;;
-(require 'solidity-mode)
-;; Set the default solity comment style as /* */
-(setq solidity-comment-style 'star)
-;;;;;;;;;;;;;;;;;;;; Package End: Solidity-mode ;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;; Package Start: exec-path-from-shell ;;;;;;;;;;;;;;;;;;;;
-(require 'exec-path-from-shell)
-;; sets $MANPATH, $PATH, and $exec-path from shell, only on OS X/Linux
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
-;;;;;;;;;;;;;;;;;;;; Package End: exec-path-from-shell ;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;; Start Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables

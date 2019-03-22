@@ -26,7 +26,6 @@ add the package's name to 'pkg-list' in init.el and reload emacs
 * cython-mode
 * js-format
 * web-beautify
-* exec-path-from-shell
 * rjsx-mode
 * markdown-mode
 * go-mode
