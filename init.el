@@ -7,9 +7,12 @@
 
 ;; Set 'pkg-list' as an array containing the packages
 (setq pkg-list '(magit
+		 helm
 		 pdf-tools
 		 auto-complete
 		 solidity-mode
+		 yasnippet
+		 yasnippet-snippets
 		 color-theme-sanityinc-tomorrow))
 
 (dolist (pkg pkg-list)
@@ -22,11 +25,23 @@
        (package-refresh-contents)))))
 ;;;;;;;;;;;;;;;;;;;; End Package Management ;;;;;;;;;;;;;;;;;;;;
 
+;;;;;;;;;;;;;;;;;;;; General Configuration Start ;;;;;;;;;;;;;;;;;;;;
+;; Set auto-pair mode on
+(electric-pair-mode t)
+;;;;;;;;;;;;;;;;;;;; General Configuration End ;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;; Package Start: helm ;;;;;;;;;;;;;;;;;;;;
+(require 'helm)
+(helm-mode)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+;;;;;;;;;;;;;;;;;;;; Package End: helm ;;;;;;;;;;;;;;;;;;;;
+
 ;;;;;;;;;;;;;;;;;;;; Package Start: Auto-Complete ;;;;;;;;;;;;;;;;;;;;
 (require 'auto-complete)
 (global-auto-complete-mode t)
 ;;;;;;;;;;;;;;;;;;;; Package End: Auto-Complete ;;;;;;;;;;;;;;;;;;;;
-
 
 ;;;;;;;;;;;;;;;;;;;; Package Start: Solidity-mode ;;;;;;;;;;;;;;;;;;;;
 (require 'solidity-mode)

@@ -10,6 +10,7 @@ transient/
 # emacs temp files
 /#*
 *~
+bookmarks
 
 # auto-complete temp files
 *.dat
