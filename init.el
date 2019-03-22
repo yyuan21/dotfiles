@@ -13,6 +13,7 @@
 		 solidity-mode
 		 yasnippet
 		 yasnippet-snippets
+		 exec-path-from-shell
 		 color-theme-sanityinc-tomorrow))
 
 (dolist (pkg pkg-list)
@@ -48,6 +49,13 @@
 ;; Set the default solity comment style as /* */
 (setq solidity-comment-style 'star)
 ;;;;;;;;;;;;;;;;;;;; Package End: Solidity-mode ;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;; Package Start: exec-path-from-shell ;;;;;;;;;;;;;;;;;;;;
+(require 'exec-path-from-shell)
+;; sets $MANPATH, $PATH, and $exec-path from shell, only on OS X/Linux
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+;;;;;;;;;;;;;;;;;;;; Package End: exec-path-from-shell ;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;; Start Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
