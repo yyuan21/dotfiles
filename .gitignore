@@ -14,3 +14,7 @@ bookmarks
 
 # auto-complete temp files
 *.dat
+
+# org export files
+*.tex
+*.pdf
