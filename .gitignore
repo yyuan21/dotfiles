@@ -18,3 +18,6 @@ bookmarks
 # org export files
 *.tex
 *.pdf
+
+# eshell
+eshell/
