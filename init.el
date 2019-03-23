@@ -29,16 +29,19 @@
 ;;;;;;;;;;;;;;;;;;;; End Package Management ;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;; General Configuration Start ;;;;;;;;;;;;;;;;;;;;
-;; Set auto-pair mode on
-(electric-pair-mode t)
-
 ;; loads all *.el package config files in ./pkgs-config directory
 (defun load-directory (dir)
       (let ((load-it (lambda (f)
 		       (load-file (concat (file-name-as-directory dir) f)))
 		     ))
 	(mapc load-it (directory-files dir nil "\\.el$"))))
-    (load-directory "~/.emacs.d/pkgs-config/")
+
+;; load package configurations
+(load-directory "~/.emacs.d/pkgs-config/")
+
+;; load global configurations
+(load-directory "~/.emacs.d/global-config/")
+
 ;;;;;;;;;;;;;;;;;;;; General Configuration End ;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;; Start Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
