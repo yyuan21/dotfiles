@@ -14,7 +14,7 @@
 
 *** pdf-tools: See official pdf-tools [repo](https://github.com/politza/pdf-tools PDF-Tools)
 
-** Packages to-be-added [0%]
+** Packages to-be-added [4%]
 
 *** TODO evil
 *** TODO tuareg
@@ -37,6 +37,7 @@
 *** TODO flycheck-pos-tip
 *** TODO elfeed
 *** TODO exwm
-*** TODO smex
+*** DONE smex
+    CLOSED: [2019-03-23 Sat 20:01]
 *** TODO minimap
 *** TODO protobuf-mode

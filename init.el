@@ -9,6 +9,7 @@
 (setq pkg-list '(magit
 		 helm
 		 org
+		 smex
 		 flycheck
 		 pdf-tools
 		 auto-complete

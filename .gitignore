@@ -21,3 +21,6 @@ bookmarks
 
 # eshell
 eshell/
+
+# smex history
+smex-items
