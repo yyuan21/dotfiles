@@ -30,7 +30,7 @@
 ;;;;;;;;;;;;;;;;;;;; End Package Management ;;;;;;;;;;;;;;;;;;;;
 
 ;;;;;;;;;;;;;;;;;;;; General Configuration Start ;;;;;;;;;;;;;;;;;;;;
-;; loads all *.el package config files in ./pkgs-config directory
+;; loads all *.el package config files in a directory
 (defun load-directory (dir)
       (let ((load-it (lambda (f)
 		       (load-file (concat (file-name-as-directory dir) f)))
