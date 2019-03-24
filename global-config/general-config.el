@@ -10,3 +10,6 @@
 ;; Set auto-pair mode on
 (electric-pair-mode t)
 
+;; set the default shell
+(setq explicit-shell-file-name "/usr/local/bin/zsh")
+
