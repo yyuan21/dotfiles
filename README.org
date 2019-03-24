@@ -41,3 +41,7 @@
     CLOSED: [2019-03-23 Sat 20:01]
 *** TODO minimap
 *** TODO protobuf-mode
+** Emacs term/ansi-term zsh PWD fix [%]
+
+*** DONE run './zsh-emacs-pwd.sh' in the script folder
+    CLOSED: [2019-03-23 Sat 22:45]
