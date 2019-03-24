@@ -13,3 +13,8 @@
 ;; set the default shell
 (setq explicit-shell-file-name "/usr/local/bin/zsh")
 
+(autoload 'View-scroll-half-page-forward "view")
+(autoload 'View-scroll-half-page-backward "view")
+
+(global-set-key (kbd "C-v") 'View-scroll-half-page-forward)
+(global-set-key (kbd "M-v") 'View-scroll-half-page-backward)
