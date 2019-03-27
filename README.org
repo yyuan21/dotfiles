@@ -43,5 +43,5 @@
 *** TODO protobuf-mode
 ** Emacs term/ansi-term zsh PWD fix [1/1]
 
-*** DONE run './zsh-emacs-pwd.sh' in the script folder
+*** DONE run './setup.sh' in the current folder
     CLOSED: [2019-03-23 Sat 23:20]
