@@ -4,6 +4,27 @@
 ** List of Packages
 
 *** Magit
+
+*** helm
+
+*** org
+
+*** smex
+
+*** flycheck
+
+*** pdf-tools
+
+*** auto-complete
+
+*** solidity-mode
+
+*** yasnippet
+
+*** yasnippet-snippets
+
+*** exec-path-from-shell
+
 *** color-theme-sanitynic-tomorrow
 
 ** Add to Package List
@@ -41,7 +62,7 @@
     CLOSED: [2019-03-23 Sat 20:01]
 *** TODO minimap
 *** TODO protobuf-mode
-** Emacs term/ansi-term zsh PWD fix [1/1]
 
-*** DONE run './setup.sh' in the current folder
-    CLOSED: [2019-03-23 Sat 23:20]
+** Set up zsh
+This Emacs configuration is best suited with *zsh*, before running *./setup*, should
+have *oh-my-zsh* installed.
