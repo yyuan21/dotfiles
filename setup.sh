@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
+# the folder that contains the code snippets
 MISC_FOLDER=~/.emacs.d/misc/
 
+# zsh related file and folders
 ZSHRC=~/.zshrc
 OMZ_DIR=~/.oh-my-zsh/
 OMZ_THEME_DIR=$OMZ_DIR/themes/
 
+# the theme file configured for the zsh
 THEME_FILE=emacsy.zsh-theme
 
 ########## setup zsh theme for emacs ##########
@@ -22,11 +25,12 @@ if [ ! -d "$OMZ_DIR" ] || [ ! -d "$OMZ_THEME_DIR" ]; then
     exit 1
 fi
 
+# copy the theme to the oh-my-zsh themes folder
 THEME_PATH="$MISC_FOLDER/$THEME_FILE"
 cp "$THEME_PATH" "$OMZ_THEME_DIR"
 
+# check if we successfully copied the theme file
 if [ -f "$OMZ_THEME_DIR/$THEME_FILE" ]; then
-    # check if we successfully copied the theme file
     echo "emacsy zsh theme installed!"
 fi
 
@@ -46,7 +50,6 @@ if ! grep -q "$GREP_STR" "$ZSHRC"; then
     echo "" >> "$ZSHRC"
     cat "$ZSH_EMACS_PWD_CODE" >> "$ZSHRC"
     echo "" >> "$ZSHRC"
-    echo "Done"
 else
     # the code snippet exists
     echo "zshrc already contains the required code"
