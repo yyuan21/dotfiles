@@ -9,6 +9,10 @@ _emacsy_collapsed_wd() {
    }; s|^$ENV{HOME}|~|g; s|/([^/.])[^/]*(?=/)|/$1|g; s|/\.([^/])[^/]*(?=/)|/.$1|g')
 }
 
+_git_get_ahead_count() {
+    echo $(command git log 2> /dev/null | grep '^commit' | wc -l | tr -d " ")
+}
+
 if [ $UID -eq 0 ]; then
     NCOLOR="red";
 else
@@ -39,6 +43,6 @@ fi
 
 # git settings
 ZSH_THEME_GIT_PROMPT_PREFIX="$FG[075]($FG[078]"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
-ZSH_THEME_GIT_PROMPT_DIRTY="$my_orange*%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="$FG[075]+$my_orange$(_git_get_ahead_count)"
+ZSH_THEME_GIT_PROMPT_DIRTY="$FG[075]+$my_orange$(_git_get_ahead_count) $my_orange*%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[075])%{$reset_color%}"
