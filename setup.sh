@@ -34,27 +34,17 @@ fi
 sed -i.origin 's/ZSH_THEME=\".*\"/ZSH_THEME=\"emacsy\"/' "$ZSHRC"
 
 ########## allow zsh to output PWD to emacs ##########
+ZSH_EMACS_PWD_CODE=~/.emacs.d/misc/emacs-pwd.zsh
+
 # the string to check if the code snippet has already
 # been injected into .zshrc
 GREP_STR="# ZSH_EMACS_PWD"
-
-# the comment of the snippet
-EMACS_PWD_CMT="# allow zsh to output PWD to emacs"
-
-# the code snippet that allows zsh to output PWD
-EMACS_PWD_CODE='if [ -n "$INSIDE_EMACS" ]; then
-    chpwd() {
-        print -P "\032/$(pwd)"
-    }
-fi'
 
 if ! grep -q "$GREP_STR" "$ZSHRC"; then
     # if the code snippnet is not found, inject it
     echo "Configuring zshrc to output PWD to emacs"
     echo "" >> "$ZSHRC"
-    echo "$GREP_STR" >> "$ZSHRC"
-    echo "$EMACS_PWD_CMT" >> "$ZSHRC"
-    echo "$EMACS_PWD_CODE" >> "$ZSHRC"
+    cat "$ZSH_EMACS_PWD_CODE" >> "$ZSHRC"
     echo "" >> "$ZSHRC"
     echo "Done"
 else
