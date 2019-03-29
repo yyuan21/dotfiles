@@ -2,15 +2,19 @@
 
 # collapsed path (like fish)
 _emacsy_collapsed_wd() {
-  echo $(pwd | perl -pe '
-   BEGIN {
-      binmode STDIN,  ":encoding(UTF-8)";
-      binmode STDOUT, ":encoding(UTF-8)";
-   }; s|^$ENV{HOME}|~|g; s|/([^/.])[^/]*(?=/)|/$1|g; s|/\.([^/])[^/]*(?=/)|/.$1|g
-')
+    echo $(pwd | perl -pe '
+    	 BEGIN {
+	 binmode STDIN,  ":encoding(UTF-8)";
+	 binmode STDOUT, ":encoding(UTF-8)";
+   }; s|^$ENV{HOME}|~|g; s|/([^/.])[^/]*(?=/)|/$1|g; s|/\.([^/])[^/]*(?=/)|/.$1|g')
 }
 
-if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="green"; fi
+if [ $UID -eq 0 ]; then
+    NCOLOR="red";
+else
+    NCOLOR="green";
+fi
+
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
 # primary prompt
@@ -28,9 +32,9 @@ eval my_orange='$FG[214]'
 # right prompt
 if type "virtualenv_prompt_info" > /dev/null
 then
-	RPROMPT='$(virtualenv_prompt_info)$my_gray%n@%m%{$reset_color%}%'
+    RPROMPT='$(virtualenv_prompt_info)$my_gray%n@%m%{$reset_color%}%'
 else
-	RPROMPT='$my_gray%n@%m%{$reset_color%}%'
+    RPROMPT='$my_gray%n@%m%{$reset_color%}%'
 fi
 
 # git settings
