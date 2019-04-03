@@ -1,26 +1,28 @@
+#################### emacs ####################
+
 # emacs' auto save list buffer
-auto-save-list/
+emacs/auto-save-list/
 
 # elpa package folder
-elpa/
+emacs/elpa/
 
 # magit transient folder
-transient/
+emacs/transient/
 
 # emacs temp files
-/#*
-*~
-bookmarks
+emacs/#*
+emacs/*~
+emacs/bookmarks
 
 # auto-complete temp files
-*.dat
+emacs/*.dat
 
 # org export files
-*.tex
-*.pdf
+emacs/*.tex
+emacs/*.pdf
 
 # eshell
-eshell/
+emacs/eshell/
 
 # smex history
-smex-items
+emacs/smex-items
