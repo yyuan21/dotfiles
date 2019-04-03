@@ -13,6 +13,26 @@
 
 #################### variables ####################
 
+# color setup
+if which tput >/dev/null 2>&1; then
+    ncolors=$(tput colors)
+fi
+if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
+    RED="$(tput setaf 1)"
+    GREEN="$(tput setaf 2)"
+    YELLOW="$(tput setaf 3)"
+    BLUE="$(tput setaf 4)"
+    BOLD="$(tput bold)"
+    NORMAL="$(tput sgr0)"
+else
+    RED=""
+    GREEN=""
+    YELLOW=""
+    BLUE=""
+    BOLD=""
+    NORMAL=""
+fi
+
 # home directory
 HOME=~
 
@@ -32,16 +52,17 @@ DOT_FOLDERS=$(find "$DOT_DIR" ! -path "$DOT_DIR" ! -path "$DOT_DIR/.*" -maxdepth
 # to exactly where they came from
 
 # create folder for holding backup files
-echo "Moving old dotfiles to backup folder"
+printf "${YELLOW}Moving old dotfiles to backup folder...${NORMAL}\n"
 mkdir -p $DOT_BACKUP
 
 for dotpath in $DOT_FOLDERS; do
     dotname=$(basename $dotpath)
+    printf "${BOLD}%s:${NORMAL}\n" "$dotname"
     dotfiles=$(find "$HOME" -maxdepth 1 -name "*$dotname*")
     for df in $dotfiles; do
-	printf "Moving %s to %s\n" "$df" "$DOT_BACKUP"
+	printf "Moving ${GREEN}%s${NORMAL} to ${GREEN}%s${NORMAL}\n" "$df" "$DOT_BACKUP"
 	mv $df $DOT_BACKUP
     done
 done
-echo "...done"
+printf "${YELLOW}...done${NORMAL}\n"
 
