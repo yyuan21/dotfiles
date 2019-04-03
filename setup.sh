@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+#################### General Info ####################
+
+# This script sets up all the dotfiles
+# all the work done here should be idempotent
+# 1. all the original dotfiles should be backed up
+# 2. remove old symbolic links
+# 3. link all the config dotfiles again to the home directory
+
+#################### back up ####################
+
+DOT_BACKUP=~/dotfiles_backup
+
+
+
 # the folder that contains the code snippets
 MISC_FOLDER=~/.emacs.d/misc/
 
