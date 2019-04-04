@@ -67,7 +67,7 @@ for dotpath in $DOT_FOLDERS; do
 	mv $df $DOT_BACKUP
     done
 done
-printf "${YELLOW}...done${NORMAL}\n"
+printf "${YELLOW}...done${NORMAL}\n\n"
 
 #################### dependencies detection ####################
 
@@ -81,3 +81,15 @@ if [ ! -d "$OMZ_DIR" ]; then
     exit 1
 fi
 
+#################### make symbolic links for dotfiles ####################
+
+printf "${YELLOW}Making symbolic links for dot files...${NORMAL}\n"
+for dotpath in $DOT_FOLDERS; do
+    dotname=$(basename $dotpath)
+    printf "${BOLD}%s:${NORMAL}\n" "$dotname"
+    dotfiles=$(find $dotpath ! -path $dotpath -maxdepth 1 -name ".*")
+    for df in $dotfiles; do
+	echo $df
+    done
+done
+printf "${YELLOW}...done${NORMAL}\n"
