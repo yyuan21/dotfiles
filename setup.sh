@@ -13,7 +13,7 @@
 
 #################### variables ####################
 
-# color setup
+# color codes setup
 if which tput >/dev/null 2>&1; then
     ncolors=$(tput colors)
 fi
@@ -45,6 +45,9 @@ DOT_BACKUP=~/dotfiles_backup
 # all the project folders we need to setup
 DOT_FOLDERS=$(find "$DOT_DIR" ! -path "$DOT_DIR" ! -path "$DOT_DIR/.*" -maxdepth 1 -type d)
 
+# oh-my-zsh folder
+OMZ_DIR=~/.oh-my-zsh
+
 #################### back up ####################
 
 # only back up the files that have compatibility issues
@@ -58,11 +61,23 @@ mkdir -p $DOT_BACKUP
 for dotpath in $DOT_FOLDERS; do
     dotname=$(basename $dotpath)
     printf "${BOLD}%s:${NORMAL}\n" "$dotname"
-    dotfiles=$(find "$HOME" -maxdepth 1 -name "*$dotname*")
+    dotfiles=$(find "$HOME" ! -path "$OMZ_DIR" -maxdepth 1 -name "*$dotname*")
     for df in $dotfiles; do
 	printf "Moving ${GREEN}%s${NORMAL} to ${GREEN}%s${NORMAL}\n" "$df" "$DOT_BACKUP"
 	mv $df $DOT_BACKUP
     done
 done
 printf "${YELLOW}...done${NORMAL}\n"
+
+#################### dependencies detection ####################
+
+if ! command -v zsh > /dev/null 2>&1; then
+    printf "${RED}Zsh is not installed!${NORMAL}\n"
+    exit 1
+fi
+
+if [ ! -d "$OMZ_DIR" ]; then
+    printf "${RED}Oh-my-zsh is not installed${NORMAL}\n"
+    exit 1
+fi
 
