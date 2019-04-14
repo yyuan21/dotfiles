@@ -39,7 +39,7 @@ OMZ_DIR=~/.oh-my-zsh
 TEMP_FOLDER=~/dotfiles/.temp
 
 # temp files for holding created symblinks
-SYMB_FILES=~/dotfiles/.temp/created_symblinks.txt
+SYMB_FILES=~/dotfiles/.temp/created_symblinks.temp
 
 # misc folder
 MISC_FOLDER=~/dotfiles/.misc

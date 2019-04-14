@@ -1,0 +1,32 @@
+# the global git ignored files
+
+# Compiled Files #
+##################
+
+*.class
+*.exe
+*.o
+*.so
+*.pyc
+*.pyo
+
+# Logs #
+########
+
+*.log
+
+# OS Generated Files #
+######################
+
+.DS_Store
+.DS_Store?
+
+# Temp Files #
+##############
+
+*.bak
+*.swp
+*.swo
+*~
+*#
+
