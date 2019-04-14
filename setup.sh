@@ -75,7 +75,7 @@ echo ""
 #################### other setup ####################
 
 if [ -f $MISC_ZSH_THEME ]; then
-    printf "${YELLOW}Setting up zsh theme${NORMAL}\n"
+    printf "${YELLOW}Setting up zsh theme (oh-my-zsh)${NORMAL}\n"
     cp $MISC_ZSH_THEME_SRC $MISC_ZSH_THEME_TAR
     printf "${YELLOW}...done${NORMAL}\n"
 fi
