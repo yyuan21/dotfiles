@@ -34,3 +34,9 @@ DOT_FOLDERS=$(find "$DOT_DIR" ! -path "$DOT_DIR" ! -path "$DOT_DIR/.*" -maxdepth
 
 # oh-my-zsh folder
 OMZ_DIR=~/.oh-my-zsh
+
+# temp file folder
+TEMP_FOLDER=~/dotfiles/.temp
+
+# temp files for holding created symblinks
+SYMB_FILES=~/dotfiles/.temp/created_symblinks.txt

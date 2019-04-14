@@ -3,6 +3,9 @@
 # test script
 test.sh
 
+# temp files
+.temp/
+
 #################### emacs ####################
 
 # emacs' auto save list buffer

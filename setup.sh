@@ -50,13 +50,22 @@ fi
 
 #################### make symbolic links for dotfiles ####################
 
+# create temp folder for holding temp files
+mkdir -p $TEMP_FOLDER
+
+# write all created symbolic links to a temp files
+touch $SYMB_FILES
+
 printf "${YELLOW}Making symbolic links for dot files...${NORMAL}\n"
 for dotpath in $DOT_FOLDERS; do
     dotname=$(basename $dotpath)
     printf "${BOLD}%s:${NORMAL}\n" "$dotname"
     dotfiles=$(find $dotpath ! -path $dotpath -maxdepth 1 -name ".*")
     for df in $dotfiles; do
-	echo $df
+	symbname=~/$(basename $df)
+	printf "Creating symbolic link: ${GREEN}%s${NORMAL}\n" "$symbname"
+	ln -s $df $symbname
+	echo $symbname >> $SYMB_FILES
     done
 done
 printf "${YELLOW}...done${NORMAL}\n"
