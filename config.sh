@@ -40,3 +40,10 @@ TEMP_FOLDER=~/dotfiles/.temp
 
 # temp files for holding created symblinks
 SYMB_FILES=~/dotfiles/.temp/created_symblinks.txt
+
+# misc folder
+MISC_FOLDER=~/dotfiles/.misc
+
+# zsh emacs theme
+MISC_ZSH_THEME_SRC=~/dotfiles/.misc/emacsy.zsh
+MISC_ZSH_THEME_TAR=~/dotfiles/.misc/emacsy.zsh-theme

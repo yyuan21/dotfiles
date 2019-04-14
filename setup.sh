@@ -43,7 +43,7 @@ if ! command -v zsh > /dev/null 2>&1; then
     exit 1
 fi
 
-if [ ! -d "$OMZ_DIR" ]; then
+if [ ! -d $OMZ_DIR ]; then
     printf "${RED}Oh-my-zsh is not installed${NORMAL}\n"
     exit 1
 fi
@@ -69,3 +69,13 @@ for dotpath in $DOT_FOLDERS; do
     done
 done
 printf "${YELLOW}...done${NORMAL}\n"
+
+echo ""
+
+#################### other setup ####################
+
+if [ -f $MISC_ZSH_THEME ]; then
+    printf "${YELLOW}Setting up zsh theme${NORMAL}\n"
+    cp $MISC_ZSH_THEME_SRC $MISC_ZSH_THEME_TAR
+    printf "${YELLOW}...done${NORMAL}\n"
+fi
