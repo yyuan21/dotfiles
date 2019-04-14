@@ -8,7 +8,7 @@
 	name = Yida
 [core]
 	excludesfile = /Users/MrYY/.gitignore_global
-	editor = vim
+	editor = emacs
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
