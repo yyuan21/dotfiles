@@ -32,7 +32,7 @@ fi
 
 printf "${YELLOW}Restore back up files:${NORMAL}\n"
 # all the backed up files
-BACKUP_FILES=$(find "$DOT_BACKUP" ! -path "$DOT_BACKUP" -maxdepth 1)
+BACKUP_FILES=$(find "$DOT_BACKUP" -maxdepth 1 ! -path "$DOT_BACKUP")
 
 for bf in $BACKUP_FILES; do
     homefile=~/$(basename $bf)

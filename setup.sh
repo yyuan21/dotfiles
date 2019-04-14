@@ -28,7 +28,7 @@ mkdir -p $DOT_BACKUP
 for dotpath in $DOT_FOLDERS; do
     dotname=$(basename $dotpath)
     printf "${BOLD}%s:${NORMAL}\n" "$dotname"
-    dotfiles=$(find "$HOME" ! -path "$OMZ_DIR" -maxdepth 1 -name "*$dotname*")
+    dotfiles=$(find "$HOME" -maxdepth 1 ! -path "$OMZ_DIR" -name "*$dotname*")
     for df in $dotfiles; do
 	printf "Moving ${GREEN}%s${NORMAL} to ${GREEN}%s${NORMAL}\n" "$df" "$DOT_BACKUP"
 	mv $df $DOT_BACKUP
@@ -60,7 +60,7 @@ printf "${YELLOW}Making symbolic links for dot files...${NORMAL}\n"
 for dotpath in $DOT_FOLDERS; do
     dotname=$(basename $dotpath)
     printf "${BOLD}%s:${NORMAL}\n" "$dotname"
-    dotfiles=$(find $dotpath ! -path $dotpath -maxdepth 1 -name ".*")
+    dotfiles=$(find $dotpath -maxdepth 1 ! -path $dotpath -name ".*")
     for df in $dotfiles; do
 	symbname=~/$(basename $df)
 	printf "Creating symbolic link: ${GREEN}%s${NORMAL}\n" "$symbname"

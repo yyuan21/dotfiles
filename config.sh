@@ -30,7 +30,7 @@ DOT_DIR=~/dotfiles
 DOT_BACKUP=~/dotfiles_backup
 
 # all the project folders we need to setup
-DOT_FOLDERS=$(find "$DOT_DIR" ! -path "$DOT_DIR" ! -path "$DOT_DIR/.*" -maxdepth 1 -type d)
+DOT_FOLDERS=$(find "$DOT_DIR" -maxdepth 1 ! -path "$DOT_DIR" ! -path "$DOT_DIR/.*" -type d)
 
 # oh-my-zsh folder
 OMZ_DIR=~/.oh-my-zsh
