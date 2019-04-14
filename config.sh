@@ -46,4 +46,4 @@ MISC_FOLDER=~/dotfiles/.misc
 
 # zsh emacs theme
 MISC_ZSH_THEME_SRC=~/dotfiles/.misc/emacsy.zsh
-MISC_ZSH_THEME_TAR=~/dotfiles/.misc/emacsy.zsh-theme
+MISC_ZSH_THEME_TAR=~/.oh-my-zsh/themes/emacsy.zsh-theme
