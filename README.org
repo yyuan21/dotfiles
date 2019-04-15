@@ -1,70 +1,35 @@
 
 * dotfiles
 
-** Emacs
+A project for managing all important dotfiles in home directory
 
-*** List of Packages
+** install
 
-*** Magit
+1. run each script in ./pkgs in the order of prefix
+2. run ./setup.sh
+3. source .zshrc
 
-*** helm
+** unintall
 
-*** org
+1. ./revert.sh
 
-*** smex
+** Dot Files
+   
+*** Emacs
+**** List of Packages
+1. Magit
+2. helm
+3. org
+4. smex
+5. flycheck
+6. pdf-tools
+7. auto-complete
+8. solidity-mode
+9. yasnippet
+10. yasnippet-snippets
+11. exec-path-from-shell
+12. color-theme-sanitynic-tomorrow
 
-*** flycheck
+**** Add to Package List
+Add the package's name to 'pkg-list' in init.el and reload emacs
 
-*** pdf-tools
-
-*** auto-complete
-
-*** solidity-mode
-
-*** yasnippet
-
-*** yasnippet-snippets
-
-*** exec-path-from-shell
-
-*** color-theme-sanitynic-tomorrow
-
-*** Add to Package List
-
-*** add the package's name to 'pkg-list' in init.el and reload emacs
-
-*** Dependencies
-
-*** pdf-tools: See official pdf-tools [repo](https://github.com/politza/pdf-tools PDF-Tools)
-
-*** Packages to-be-added [4%]
-
-*** TODO evil
-*** TODO tuareg
-*** TODO jedi
-*** TODO epc
-*** TODO projectile
-*** TODO which-key
-*** TODO ein
-*** TODO cython-mode
-*** TODO js-format
-*** TODO web-beautify
-*** TODO rjsx-mode
-*** TODO markdown-mode
-*** TODO multi-term
-*** TODO origami
-*** TODO auctex
-*** TODO auto-complete-auctex
-*** TODO multiple-cursors
-*** TODO nov
-*** TODO flycheck-pos-tip
-*** TODO elfeed
-*** TODO exwm
-*** DONE smex
-    CLOSED: [2019-03-23 Sat 20:01]
-*** TODO minimap
-*** TODO protobuf-mode
-
-*** Set up zsh
-This Emacs configuration is best suited with *zsh*, before running *./setup*, should
-have *oh-my-zsh* installed.
