@@ -9,28 +9,28 @@ test.sh
 #################### emacs ####################
 
 # emacs' auto save list buffer
-emacs/.emacs.d/auto-save-list/
+dotsrc/emacs/.emacs.d/auto-save-list/
 
 # elpa package folder
-emacs/.emacs.d/elpa/
+dotsrc/emacs/.emacs.d/elpa/
 
 # magit transient folder
-emacs/.emacs.d/transient/
+dotsrc/emacs/.emacs.d/transient/
 
 # emacs temp files
-emacs/.emacs.d/#*
-emacs/.emacs.d/*~
-emacs/.emacs.d/bookmarks
+dotsrc/emacs/.emacs.d/#*
+dotsrc/emacs/.emacs.d/*~
+dotsrc/emacs/.emacs.d/bookmarks
 
 # auto-complete temp files
-emacs/.emacs.d/*.dat
+dotsrc/emacs/.emacs.d/*.dat
 
 # org export files
-emacs/.emacs.d/*.tex
-emacs/.emacs.d/*.pdf
+dotsrc/emacs/.emacs.d/*.tex
+dotsrc/emacs/.emacs.d/*.pdf
 
 # eshell
-emacs/.emacs.d/eshell/
+dotsrc/emacs/.emacs.d/eshell/
 
 # smex history
-emacs/.emacs.d/smex-items
+dotsrc/emacs/.emacs.d/smex-items
