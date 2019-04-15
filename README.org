@@ -17,10 +17,12 @@ All the packages need to be installed separately before running the *setup.sh* s
 
 *** oh-my-zsh
 A great framework for managing *zsh* configuration.
+
 Project Link: github.com/robbyrussell/oh-my-zsh
 
 *** zsh-syntax-highlighting
-A package that provides syntax highlighting for *zsh*
+A package that provides syntax highlighting for *zsh*.
+
 Project Link: github.com/zsh-users/zsh-syntax-highlighting
 
 ** unintall
