@@ -13,7 +13,7 @@
 
 #################### include variables ####################
 
-source config.sh
+source ./misc/config.sh
 
 #################### back up ####################
 

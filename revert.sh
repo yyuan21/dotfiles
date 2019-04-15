@@ -2,7 +2,7 @@
 
 #################### include variables uuuuuuuuuuuuuuuuuuuu
 
-source config.sh
+source ./misc/config.sh
 
 #################### clean up symbolic links ####################
 
