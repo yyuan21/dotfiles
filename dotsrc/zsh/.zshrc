@@ -64,6 +64,7 @@ ZSH_THEME="emacsy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    virtualenv
     zsh-syntax-highlighting
 )
 
