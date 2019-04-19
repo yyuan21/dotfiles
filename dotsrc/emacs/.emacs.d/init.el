@@ -12,6 +12,7 @@
 		 smex
 		 flycheck
 		 pdf-tools
+		 multi-term
 		 auto-complete
 		 solidity-mode
 		 yasnippet
