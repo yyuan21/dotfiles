@@ -63,8 +63,8 @@ for dotpath in $DOT_FOLDERS; do
     dotfiles=$(find $dotpath -maxdepth 1 ! -path $dotpath -name ".*")
     for df in $dotfiles; do
 	symbname=~/$(basename $df)
-	printf "Creating symbolic link: ${GREEN}%s${NORMAL}\n" "$symbname"
 	ln -s $df $symbname
+	printf "Symlink created: ${GREEN}%s${NORMAL} -> ${GREEN}%s${NORMAL}\n" "$symbname" "$df"
 	echo $symbname >> $SYMB_FILES
     done
 done
