@@ -7,7 +7,7 @@ under *pkgs/*
 
 ** install
 
-1. run each script in ./pkgs in the order of prefix
+1. run all scripts in ./pkgs in the order of their prefixes
 2. run ./setup.sh
 3. source .zshrc
 

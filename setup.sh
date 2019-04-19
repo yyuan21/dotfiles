@@ -76,6 +76,8 @@ echo ""
 
 if [ -f $MISC_ZSH_THEME ]; then
     printf "${YELLOW}Setting up zsh theme (oh-my-zsh)${NORMAL}\n"
-    cp $MISC_ZSH_THEME_SRC $MISC_ZSH_THEME_TAR
+    ln -s $MISC_ZSH_THEME_SRC $MISC_ZSH_THEME_TAR
+    printf "Symlink created: ${GREEN}%s${NORMAL} -> ${GREEN}%s${NORMAL}\n" "$MISC_ZSH_THEME_TAR" "$MISC_ZSH_THEME_SRC"
+    echo $MISC_ZSH_THEME_TAR >> $SYMB_FILES
     printf "${YELLOW}...done${NORMAL}\n"
 fi
