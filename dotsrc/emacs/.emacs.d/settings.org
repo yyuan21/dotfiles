@@ -1,0 +1,156 @@
+* Install
+#+BEGIN_SRC emacs-lisp
+;;; initialie packages
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+;;;; To install a package, simply add its name to 'pkg-list' and reload emacs
+
+;; Set 'pkg-list' as an array containing the packages
+(setq pkg-list '(magit
+		 helm
+		 org
+		 smex
+		 flycheck
+		 pdf-tools
+		 multi-term
+		 auto-complete
+		 solidity-mode
+		 yasnippet
+		 yasnippet-snippets
+		 exec-path-from-shell
+		 color-theme-sanityinc-tomorrow))
+
+(dolist (pkg pkg-list)
+  ;; for each package in the package list
+  (unless (package-installed-p pkg)
+    ;; if pkg is not install, install it
+    (condition-case nil
+	(package-install pkg)
+      (error
+       (package-refresh-contents)))))
+#+END_SRC
+
+* General Settings
+** General
+#+BEGIN_SRC emacs-lisp
+;; yes/no are too long
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; fix the scrolling to keep pointing in the center
+(setq scroll-conservatively 10000
+      scroll-preserve-screen-position t)
+
+;; Set auto-pair mode on
+(electric-pair-mode t)
+
+;; set the default shell
+(setq explicit-shell-file-name "/usr/local/bin/zsh")
+#+END_SRC
+
+** Display
+#+BEGIN_SRC emacs-lisp
+;; maximize frame on start up
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+
+;; open a second window on the right
+(split-window-right)
+
+;; get rid of emacs scratch message
+(setq initial-scratch-message "")
+
+;; slience the beeps!
+(setq visible-bell t)
+
+;; get rid of toolbars and scrollbars
+(when (window-system)
+  (tool-bar-mode 0)
+  (when (fboundp 'horizontal-scroll-bar-mode)
+    (horizontal-scroll-bar-mode -1))
+  (scroll-bar-mode -1))
+#+END_SRC
+
+** C mode
+#+BEGIN_SRC emacs-lisp
+;; set default style
+(setq c-default-style "linux"
+      c-basic-offset 4)
+#+END_SRC
+
+** Makefile mode
+#+BEGIN_SRC emacs-lisp
+;; set gmake-mode as the default makefile mode
+(add-to-list 'auto-mode-alist '("Makefile.*" . makefile-gmake-mode))
+#+END_SRC
+
+* Package Settings
+
+** auto-complete
+#+BEGIN_SRC emacs-lisp
+(require 'auto-complete)
+(global-auto-complete-mode t)
+#+END_SRC
+
+** exec-path-from-shell
+#+BEGIN_SRC emacs-lisp
+(require 'exec-path-from-shell)
+;; sets $MANPATH, $PATH, and $exec-path from shell, only on OS X/Linux
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+#+END_SRC
+
+** flycheck
+#+BEGIN_SRC emacs-lisp
+(require 'flycheck)
+(global-flycheck-mode)
+#+END_SRC
+
+** helm
+#+BEGIN_SRC emacs-lisp
+(require 'helm)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+#+END_SRC
+
+** multi-term
+#+BEGIN_SRC emacs-lisp
+(require 'multi-term)
+;; set default shell
+(setq multi-term-program "/usr/local/bin/zsh")
+#+END_SRC
+
+** org
+#+BEGIN_SRC emacs-lisp
+(require 'org)
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
+#+END_SRC
+
+** smex
+#+BEGIN_SRC emacs-lisp
+(require 'smex)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+#+END_SRC
+
+** solidity-mode
+#+BEGIN_SRC emacs-lisp
+(require 'solidity-mode)
+;; Set the default solity comment style as /* */
+(setq solidity-comment-style 'star)
+#+END_SRC
+
+** yasnippet
+#+BEGIN_SRC emacs-lisp
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      (append yas-snippet-dirs
+	      '("~/.emacs.d/snippets")))
+(yas-global-mode 1)
+#+END_SRC

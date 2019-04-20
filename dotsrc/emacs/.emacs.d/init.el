@@ -1,52 +1,9 @@
-;;;;;;;;;;;;;;;;;;;; Start Package Management ;;;;;;;;;;;;;;;;;;;;
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+;; load settings.org
+(require 'org)
+(org-babel-load-file
+ (expand-file-name "settings.org"
+		   user-emacs-directory))
 
-;;;; To install a package, simply add its name to 'pkg-list' and reload emacs
-
-;; Set 'pkg-list' as an array containing the packages
-(setq pkg-list '(magit
-		 helm
-		 org
-		 smex
-		 flycheck
-		 pdf-tools
-		 multi-term
-		 auto-complete
-		 solidity-mode
-		 yasnippet
-		 yasnippet-snippets
-		 exec-path-from-shell
-		 color-theme-sanityinc-tomorrow))
-
-(dolist (pkg pkg-list)
-  ;; for each package in the package list
-  (unless (package-installed-p pkg)
-    ;; if pkg is not install, install it
-    (condition-case nil
-	(package-install pkg)
-      (error
-       (package-refresh-contents)))))
-;;;;;;;;;;;;;;;;;;;; End Package Management ;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;; General Configuration Start ;;;;;;;;;;;;;;;;;;;;
-;; loads all *.el package config files in a directory
-(defun load-directory (dir)
-      (let ((load-it (lambda (f)
-		       (load-file (concat (file-name-as-directory dir) f)))
-		     ))
-	(mapc load-it (directory-files dir nil "\\.el$"))))
-
-;; load package configurations
-(load-directory "~/.emacs.d/pkgs-config/")
-
-;; load global configurations
-(load-directory "~/.emacs.d/global-config/")
-
-;;;;;;;;;;;;;;;;;;;; General Configuration End ;;;;;;;;;;;;;;;;;;;;
-
-;;;;;;;;;;;;;;;;;;;; Start Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -95,4 +52,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-;;;;;;;;;;;;;;;;;;;; End Auto-Generated Section ;;;;;;;;;;;;;;;;;;;;

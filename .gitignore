@@ -8,6 +8,9 @@ test.sh
 
 #################### emacs ####################
 
+# auto-generated settings
+dotsrc/emacs/.emacs.d/settings.el
+
 # emacs' auto save list buffer
 dotsrc/emacs/.emacs.d/auto-save-list/
 
