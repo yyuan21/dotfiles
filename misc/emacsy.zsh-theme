@@ -4,15 +4,13 @@
 
 #################### color settings ####################
 
-# the color of the first line (user/host info and line separator)
+# prompt-related colors
 PROMPT_FIRST_LINE_COLOR=$FG[237]
-# the color of the current working directory
 PROMPT_CWD_COLOR=$FG[068]
-# the color of the virtualenv prompt
 PROMPT_VENV_COLOR=$FG[085]
-# the color of the >> sign
-PROMPT_CMD_SIGN=$FG[220]
+PROMPT_CMD_SIGN=$FG[220]	# color of >>
 
+# git related colors
 GIT_PROMPT_SIGN_COLOR=$FG[075]
 GIT_BRANCH_NAME_COLOR=$FG[078]
 GIT_COUNT_NUM_COLOR=$FG[202]

@@ -70,17 +70,25 @@
   (scroll-bar-mode -1))
 #+END_SRC
 
-** C mode
+** Modes
+
+*** C mode
 #+BEGIN_SRC emacs-lisp
 ;; set default style
 (setq c-default-style "linux"
       c-basic-offset 4)
 #+END_SRC
 
-** Makefile mode
+*** Makefile mode
 #+BEGIN_SRC emacs-lisp
 ;; set gmake-mode as the default makefile mode
 (add-to-list 'auto-mode-alist '("Makefile.*" . makefile-gmake-mode))
+#+END_SRC
+
+*** shell mode
+#+BEGIN_SRC emacs-lisp
+;; set zsh-theme files' default mode to sh-mode
+(add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . sh-mode))
 #+END_SRC
 
 * Package Settings
