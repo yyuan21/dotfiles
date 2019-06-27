@@ -126,7 +126,7 @@
 #+BEGIN_SRC emacs-lisp
 (require 'multi-term)
 ;; set default shell
-(setq multi-term-program "/usr/local/bin/zsh")
+(setq multi-term-program (shell-command-to-string "echo -n $(which zsh)"))
 #+END_SRC
 
 ** org
