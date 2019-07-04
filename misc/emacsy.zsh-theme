@@ -19,9 +19,9 @@ GIT_COUNT_NUM_COLOR=$FG[202]
 
 function prompt_first_line() {
     echo "%{$PROMPT_FIRST_LINE_COLOR%}\
------------------------------- \
+---------- \
 %n@%m  \
-------------------------------\
+----------\
 %{$reset_color%}"
 }
 
