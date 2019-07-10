@@ -82,6 +82,11 @@
       c-basic-offset 4)
 #+END_SRC
 
+*** C++ mode
+#+BEGIN_SRC emacs-lisp
+(c-set-offset 'innamespace 0)
+#+END_SRC
+
 *** Makefile mode
 #+BEGIN_SRC emacs-lisp
 ;; set gmake-mode as the default makefile mode
