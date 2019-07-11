@@ -84,7 +84,9 @@
 
 *** C++ mode
 #+BEGIN_SRC emacs-lisp
-(c-set-offset 'innamespace 0)
+(defun my-c-setup ()
+   (c-set-offset 'innamespace 0))
+(add-hook 'c++-mode-hook 'my-c-setup)
 #+END_SRC
 
 *** Makefile mode
