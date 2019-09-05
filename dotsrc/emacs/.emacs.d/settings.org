@@ -12,6 +12,7 @@
 		 org
 		 smex
 		 flycheck
+		 flycheck-rust
 		 pdf-tools
 		 multi-term
 		 auto-complete
@@ -20,6 +21,8 @@
 		 tuareg
 		 typescript-mode
 		 vue-mode
+		 rust-mode
+		 cargo
 		 yasnippet
 		 yasnippet-snippets
 		 exec-path-from-shell
@@ -172,6 +175,7 @@
 	      '("~/.emacs.d/snippets")))
 (yas-global-mode 1)
 #+END_SRC
+
 ** tide
 #+BEGIN_SRC emacs-lisp
 (defun setup-tide-mode ()
@@ -191,6 +195,20 @@
 
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
-
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-#+END_SRC   
+#+END_SRC
+
+** cargo
+#+BEGIN_SRC emacs-lisp
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+
+;; run rustfmt
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))
+#+END_SRC
+
+** flycheck-rust
+#+BEGIN_SRC emacs-lisp
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+#+END_SRC
