@@ -22,6 +22,7 @@
 		 typescript-mode
 		 vue-mode
 		 rust-mode
+		 glsl-mode
 		 cargo
 		 yasnippet
 		 yasnippet-snippets
