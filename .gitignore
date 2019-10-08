@@ -4,6 +4,8 @@
 test.sh
 
 # temp files
+temp/
+!temp/emacs/.gitkeep
 .temp/
 
 #################### emacs ####################
