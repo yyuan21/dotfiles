@@ -106,4 +106,7 @@ if [ -n "$INSIDE_EMACS" ]; then
         print -P "\032/$(pwd)"
     }
 fi
-########## ZSH_EMACS_PWD ##########
+
+########## Alias ##########
+alias ec="emacsclient"
+alias ekill="emacsclient -e \"(kill-emacs)\""
