@@ -108,5 +108,5 @@ if [ -n "$INSIDE_EMACS" ]; then
 fi
 
 ########## Alias ##########
-alias ec="emacsclient"
+alias ec="emacsclient -nw"
 alias ekill="emacsclient -e \"(kill-emacs)\""
