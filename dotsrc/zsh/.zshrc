@@ -110,3 +110,8 @@ fi
 ########## Alias ##########
 alias ec="emacsclient -nw"
 alias ekill="emacsclient -e \"(kill-emacs)\""
+
+########## Exports ##########
+
+# the cross compiler gcc built on Debian machine
+export PATH="$HOME/opt/cross/bin:$PATH"
