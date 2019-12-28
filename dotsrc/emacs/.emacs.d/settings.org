@@ -26,6 +26,7 @@
 		 cargo
 		 yasnippet
 		 yasnippet-snippets
+		 multiple-cursors
 		 exec-path-from-shell
 		 color-theme-sanityinc-tomorrow))
 
@@ -239,4 +240,13 @@
 ** flycheck-rust
 #+BEGIN_SRC emacs-lisp
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+#+END_SRC
+
+** multiple-cursors
+#+BEGIN_SRC emacs-lisp
+(require 'multiple-cursors)
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 #+END_SRC
