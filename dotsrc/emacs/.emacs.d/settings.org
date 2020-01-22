@@ -20,6 +20,7 @@
 		 tide
 		 tuareg
 		 typescript-mode
+		 go-mode
 		 vue-mode
 		 rust-mode
 		 glsl-mode
