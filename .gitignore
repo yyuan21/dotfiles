@@ -39,3 +39,6 @@ dotsrc/emacs/.emacs.d/eshell/
 
 # smex history
 dotsrc/emacs/.emacs.d/smex-items
+
+# multiple-cursors history
+dotsrc/emacs/.emacs.d/.mc-lists.el

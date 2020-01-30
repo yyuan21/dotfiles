@@ -20,12 +20,14 @@
 		 tide
 		 tuareg
 		 typescript-mode
+		 go-mode
 		 vue-mode
 		 rust-mode
 		 glsl-mode
 		 cargo
 		 yasnippet
 		 yasnippet-snippets
+		 multiple-cursors
 		 exec-path-from-shell
 		 color-theme-sanityinc-tomorrow))
 
@@ -87,6 +89,10 @@
   (when (fboundp 'horizontal-scroll-bar-mode)
     (horizontal-scroll-bar-mode -1))
   (scroll-bar-mode -1))
+
+;; text-node auto wrap text
+(add-hook 'text-mode-hook 'auto-fill-mode)
+(setq-default fill-column 80)
 #+END_SRC
 
 ** Modes
@@ -223,4 +229,13 @@
 ** flycheck-rust
 #+BEGIN_SRC emacs-lisp
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+#+END_SRC
+
+** multiple-cursors
+#+BEGIN_SRC emacs-lisp
+(require 'multiple-cursors)
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 #+END_SRC
