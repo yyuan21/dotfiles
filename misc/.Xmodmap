@@ -1,0 +1,8 @@
+! The following changes the Capslock to Ctrl on Debian OS
+
+! Unmap both Capslock and Control
+clear Lock
+clear Control
+
+! Both left and right control keys and the Capslock key are assigned to Ctrl
+add Control = Control_L Control_R Caps_Lock
