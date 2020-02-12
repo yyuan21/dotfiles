@@ -23,6 +23,7 @@
 		 go-mode
 		 vue-mode
 		 rust-mode
+		 haskell-mode
 		 glsl-mode
 		 cargo
 		 yasnippet
