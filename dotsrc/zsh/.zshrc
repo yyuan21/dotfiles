@@ -115,3 +115,4 @@ alias ekill="emacsclient -e \"(kill-emacs)\""
 
 # the cross compiler gcc built on Debian machine
 export PATH="$HOME/opt/cross/bin:$PATH"
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
