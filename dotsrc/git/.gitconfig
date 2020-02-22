@@ -3,11 +3,11 @@
 	smudge = git-lfs smudge %f
 	required = true
 [user]
-	name = Sailor1028
+	name = yyuan21
 	email = yidayuan1028@gmail.com
-	name = Yida
+	name = Yida Yuan
 [core]
-	excludesfile = /Users/MrYY/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = emacs
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
