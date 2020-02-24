@@ -23,6 +23,7 @@
 		 go-mode
 		 vue-mode
 		 rust-mode
+		 php-mode
 		 haskell-mode
 		 glsl-mode
 		 cargo
