@@ -81,3 +81,6 @@ if [ -f $MISC_ZSH_THEME ]; then
     echo $MISC_ZSH_THEME_TAR >> $SYMB_FILES
     printf "${YELLOW}...done${NORMAL}\n"
 fi
+
+# create folder to store RFC documents for emacs rfc-mode
+mkdir -p $HOME/rfc

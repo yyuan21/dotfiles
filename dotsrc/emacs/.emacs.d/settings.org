@@ -25,6 +25,7 @@
 		 rust-mode
 		 php-mode
 		 haskell-mode
+		 rfc-mode
 		 glsl-mode
 		 cargo
 		 yasnippet
@@ -185,6 +186,13 @@
 (require 'solidity-mode)
 ;; Set the default solity comment style as /* */
 (setq solidity-comment-style 'star)
+#+END_SRC
+
+** rfc-mode
+#+BEGIN_SRC emacs-lisp
+(require 'rfc-mode)
+;; set $HOME/rfc as the location of all RFC documents
+(setq rfc-mode-directory (expand-file-name "~/rfc/"))
 #+END_SRC
 
 ** yasnippet
