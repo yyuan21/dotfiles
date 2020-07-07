@@ -241,6 +241,11 @@
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 #+END_SRC
 
+** xcscope
+#+BEGIN_SRC emacs-lisp
+(require 'xcscope)
+#+END_SRC
+
 ** multiple-cursors
 #+BEGIN_SRC emacs-lisp
 (require 'multiple-cursors)
