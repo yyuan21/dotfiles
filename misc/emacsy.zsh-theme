@@ -64,7 +64,7 @@ local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 PROMPT='$(prompt_first_line)
 %{$PROMPT_CWD_COLOR%}$(_emacsy_collapsed_wd) \
 $(virtualenv_prompt_info)\
-%{$PROMPT_CMD_SIGN%}%(!.#.ᐅ)%{$reset_color%} '
+%{$PROMPT_CMD_SIGN%}%(!.#.>)%{$reset_color%} '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 RPS1='${return_code}'
 
