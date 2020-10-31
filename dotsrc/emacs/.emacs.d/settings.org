@@ -69,6 +69,9 @@
   kept-old-versions 5    ; and how many of the old
   )
 
+;; use spaces instead of tabs
+(setq-default indent-tabs-mode nil)
+
 ;; tab length
 (setq-default tab-width 4)
 #+END_SRC
