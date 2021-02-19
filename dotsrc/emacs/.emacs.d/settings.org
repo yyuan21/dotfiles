@@ -78,28 +78,31 @@
 
 ** Display
 #+BEGIN_SRC emacs-lisp
-;; maximize frame on start up
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+  ;; maximize frame on start up
+  (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
-;; open a second window on the right (disabled)
-;; (split-window-right)
+  ;; open a second window on the right (disabled)
+  ;; (split-window-right)
 
-;; get rid of emacs scratch message
-(setq initial-scratch-message "")
+  ;; get rid of emacs scratch message
+  (setq initial-scratch-message "")
 
-;; slience the beeps!
-(setq visible-bell t)
+  ;; show column number as well
+  (setq column-number-mode t)
 
-;; get rid of toolbars and scrollbars
-(when (window-system)
-  (tool-bar-mode 0)
-  (when (fboundp 'horizontal-scroll-bar-mode)
-    (horizontal-scroll-bar-mode -1))
-  (scroll-bar-mode -1))
+  ;; slience the beeps!
+  (setq visible-bell t)
 
-;; text-node auto wrap text
-(add-hook 'text-mode-hook 'auto-fill-mode)
-(setq-default fill-column 80)
+  ;; get rid of toolbars and scrollbars
+  (when (window-system)
+    (tool-bar-mode 0)
+    (when (fboundp 'horizontal-scroll-bar-mode)
+      (horizontal-scroll-bar-mode -1))
+    (scroll-bar-mode -1))
+
+  ;; text-node auto wrap text
+  (add-hook 'text-mode-hook 'auto-fill-mode)
+  (setq-default fill-column 80)
 #+END_SRC
 
 ** Modes
