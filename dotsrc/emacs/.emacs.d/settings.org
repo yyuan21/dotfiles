@@ -1,48 +1,49 @@
 * Install Packages
 #+BEGIN_SRC emacs-lisp
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+  (require 'package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-initialize)
 
-;;;; To install a package, simply add its name to 'pkg-list' and reload emacs
+  ;;;; To install a package, simply add its name to 'pkg-list' and reload emacs
 
-;; Set 'pkg-list' as an array containing the packages
-(setq pkg-list '(magit
-		 helm
-		 helm-gtags
-		 org
-		 smex
-		 flycheck
-		 flycheck-rust
-		 pdf-tools
-		 multi-term
-		 auto-complete
-		 solidity-mode
-		 tide
-		 tuareg
-		 typescript-mode
-		 go-mode
-		 vue-mode
-		 rust-mode
-		 php-mode
-		 haskell-mode
-		 rfc-mode
-		 glsl-mode
-		 cargo
-		 yasnippet
-		 yasnippet-snippets
-		 multiple-cursors
-		 exec-path-from-shell
-		 color-theme-sanityinc-tomorrow))
+  ;; Set 'pkg-list' as an array containing the packages
+  (setq pkg-list '(magit
+           helm
+           helm-gtags
+           org
+           smex
+           flycheck
+           flycheck-rust
+           pdf-tools
+           multi-term
+           auto-complete
+           solidity-mode
+           tide
+           tuareg
+           typescript-mode
+           go-mode
+           vue-mode
+           rust-mode
+           php-mode
+           haskell-mode
+           rfc-mode
+           glsl-mode
+           terraform-mode
+           cargo
+           yasnippet
+           yasnippet-snippets
+           multiple-cursors
+           exec-path-from-shell
+           color-theme-sanityinc-tomorrow))
 
-(dolist (pkg pkg-list)
-  ;; for each package in the package list
-  (unless (package-installed-p pkg)
-    ;; if pkg is not install, install it
-    (condition-case nil
-	(package-install pkg)
-      (error
-       (package-refresh-contents)))))
+  (dolist (pkg pkg-list)
+    ;; for each package in the package list
+    (unless (package-installed-p pkg)
+      ;; if pkg is not install, install it
+      (condition-case nil
+      (package-install pkg)
+        (error
+         (package-refresh-contents)))))
 #+END_SRC
 
 * General Settings
@@ -225,6 +226,14 @@
 (require 'rfc-mode)
 ;; set $HOME/rfc as the location of all RFC documents
 (setq rfc-mode-directory (expand-file-name "~/rfc/"))
+#+END_SRC
+
+** terraform-mode
+#+BEGIN_SRC emacs-lisp
+(require 'terraform-mode)
+;; indentation size
+(custom-set-variables
+ '(terraform-indent-level 4))
 #+END_SRC
 
 ** yasnippet

@@ -21,6 +21,7 @@
  '(inhibit-startup-screen t)
  '(org-agenda-files '("~/.emacs.d/README.org"))
  '(package-selected-packages '(magit color-theme-sanityinc-tomorrow))
+ '(terraform-indent-level 4)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    '((20 . "#f2777a")

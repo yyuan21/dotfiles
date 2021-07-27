@@ -119,3 +119,5 @@ export PATH="$HOME/opt/cross/bin:$PATH"
 
 # opam configuration
 test -r /home/yyuan21/.opam/opam-init/init.zsh && . /home/yyuan21/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export PATH=$PATH:/usr/local/go/bin
