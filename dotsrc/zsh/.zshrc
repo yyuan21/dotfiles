@@ -113,6 +113,9 @@ alias ekill="emacsclient -e \"(kill-emacs)\""
 
 ########## Exports ##########
 
+# JAVA_HOME
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 # the cross compiler gcc built on Debian machine
 export PATH="$HOME/opt/cross/bin:$PATH"
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
@@ -121,3 +124,19 @@ export PATH="$HOME/opt/cross/bin:$PATH"
 test -r /home/yyuan21/.opam/opam-init/init.zsh && . /home/yyuan21/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 export PATH=$PATH:/usr/local/go/bin
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/yyuan21/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/yyuan21/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/yyuan21/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/yyuan21/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

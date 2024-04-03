@@ -110,16 +110,17 @@
 
 *** C mode
 #+BEGIN_SRC emacs-lisp
-;; set default style
-(setq c-default-style "linux"
-      c-basic-offset 4)
+  ;; set default style
+  (defun my-c-setup ()
+    (c-basic-offset 2))
+  (add-hook 'c-mode-hook 'my-c-setup)
 #+END_SRC
 
 *** C++ mode
 #+BEGIN_SRC emacs-lisp
-(defun my-c-setup ()
+(defun my-c++-setup ()
    (c-set-offset 'innamespace 0))
-(add-hook 'c++-mode-hook 'my-c-setup)
+(add-hook 'c++-mode-hook 'my-c++-setup)
 #+END_SRC
 
 *** Makefile mode
