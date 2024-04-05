@@ -11,7 +11,7 @@
 # 2. remove old symbolic links
 # 3. link all the config dotfiles again to the home directory
 
-#################### include variables ####################
+#################### global settings ####################
 
 source ./misc/config.sh
 
