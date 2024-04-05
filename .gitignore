@@ -11,34 +11,34 @@ temp/
 #################### emacs ####################
 
 # auto-generated settings
-dotsrc/emacs/.emacs.d/settings.el
+src/emacs/.emacs.d/settings.el
 
 # emacs' auto save list buffer
-dotsrc/emacs/.emacs.d/auto-save-list/
+src/emacs/.emacs.d/auto-save-list/
 
 # elpa package folder
-dotsrc/emacs/.emacs.d/elpa/
+src/emacs/.emacs.d/elpa/
 
 # magit transient folder
-dotsrc/emacs/.emacs.d/transient/
+src/emacs/.emacs.d/transient/
 
 # emacs temp files
-dotsrc/emacs/.emacs.d/#*
-dotsrc/emacs/.emacs.d/*~
-dotsrc/emacs/.emacs.d/bookmarks
+src/emacs/.emacs.d/#*
+src/emacs/.emacs.d/*~
+src/emacs/.emacs.d/bookmarks
 
 # auto-complete temp files
-dotsrc/emacs/.emacs.d/*.dat
+src/emacs/.emacs.d/*.dat
 
 # org export files
-dotsrc/emacs/.emacs.d/*.tex
-dotsrc/emacs/.emacs.d/*.pdf
+src/emacs/.emacs.d/*.tex
+src/emacs/.emacs.d/*.pdf
 
 # eshell
-dotsrc/emacs/.emacs.d/eshell/
+src/emacs/.emacs.d/eshell/
 
 # smex history
-dotsrc/emacs/.emacs.d/smex-items
+src/emacs/.emacs.d/smex-items
 
 # multiple-cursors history
-dotsrc/emacs/.emacs.d/.mc-lists.el
+src/emacs/.emacs.d/.mc-lists.el
