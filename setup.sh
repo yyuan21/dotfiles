@@ -4,83 +4,24 @@
 
 # This script sets up all the dotfiles
 # all the work done here should be idempotent
-# libraries and frameworks are not saved in this repo. Instead
-# they are checked and installed via this script.
-
-# 1. all the original dotfiles should be backed up
-# 2. remove old symbolic links
-# 3. link all the config dotfiles again to the home directory
 
 #################### global settings ####################
 
-source ./misc/config.sh
-
-#################### back up ####################
-
-# only back up the files that have compatibility issues
-# should also have 'unsetup' script to restore all files in the backup folder
-# to exactly where they came from
-
-# create folder for holding backup files
-printf "${YELLOW}Moving old dotfiles to backup folder...${NORMAL}\n"
-mkdir -p $DOT_BACKUP
-
-for dotpath in $DOT_FOLDERS; do
-    dotname=$(basename $dotpath)
-    printf "${BOLD}%s:${NORMAL}\n" "$dotname"
-    dotfiles=$(find "$HOME" -maxdepth 1 ! -path "$OMZ_DIR" -name "*$dotname*")
-    for df in $dotfiles; do
-	printf "Moving ${GREEN}%s${NORMAL} to ${GREEN}%s${NORMAL}\n" "$df" "$DOT_BACKUP"
-	mv $df $DOT_BACKUP
-    done
-done
-printf "${YELLOW}...done${NORMAL}\n\n"
-
-#################### dependencies detection ####################
-
-if ! command -v zsh > /dev/null 2>&1; then
-    printf "${RED}Zsh is not installed!${NORMAL}\n"
-    exit 1
-fi
-
-if [ ! -d $OMZ_DIR ]; then
-    printf "${RED}Oh-my-zsh is not installed${NORMAL}\n"
-    exit 1
-fi
+source ./config/config.bash
+source ./config/active.bash
 
 #################### make symbolic links for dotfiles ####################
 
-# create temp folder for holding temp files
-mkdir -p $TEMP_FOLDER
-
-# write all created symbolic links to a temp files
-touch $SYMB_FILES
-
 printf "${YELLOW}Making symbolic links for dot files...${NORMAL}\n"
-for dotpath in $DOT_FOLDERS; do
-    dotname=$(basename $dotpath)
-    printf "${BOLD}%s:${NORMAL}\n" "$dotname"
-    dotfiles=$(find $dotpath -maxdepth 1 ! -path $dotpath -name ".*")
+for project in "${ACTIVE_LIST[@]}"; do
+    printf "${BOLD}$project:${NORMAL}\n"
+    project_path="$DOT_DIR/$project"
+    dotfiles=$(find $project_path -maxdepth 1 ! -path $project_path -name ".*")
     for df in $dotfiles; do
 	symbname=~/$(basename $df)
 	ln -s $df $symbname
 	printf "Symlink created: ${GREEN}%s${NORMAL} -> ${GREEN}%s${NORMAL}\n" "$symbname" "$df"
-	echo $symbname >> $SYMB_FILES
     done
 done
 printf "${YELLOW}...done${NORMAL}\n"
 
-echo ""
-
-#################### other setup ####################
-
-if [ -f $MISC_ZSH_THEME ]; then
-    printf "${YELLOW}Setting up zsh theme (oh-my-zsh)${NORMAL}\n"
-    ln -s $MISC_ZSH_THEME_SRC $MISC_ZSH_THEME_TAR
-    printf "Symlink created: ${GREEN}%s${NORMAL} -> ${GREEN}%s${NORMAL}\n" "$MISC_ZSH_THEME_TAR" "$MISC_ZSH_THEME_SRC"
-    echo $MISC_ZSH_THEME_TAR >> $SYMB_FILES
-    printf "${YELLOW}...done${NORMAL}\n"
-fi
-
-# create folder to store RFC documents for emacs rfc-mode
-mkdir -p $HOME/rfc

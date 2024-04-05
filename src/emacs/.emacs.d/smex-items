@@ -1,0 +1,20 @@
+
+;; ----- smex-history -----
+(
+ package-list-packages
+ package-refresh-contents
+ package-upgrade
+ replace-string
+ multi-term
+ cd
+ 5x5
+)
+
+;; ----- smex-data -----
+(
+ (multi-term . 4)
+ (replace-string . 3)
+ (package-upgrade . 1)
+ (package-refresh-contents . 1)
+ (package-list-packages . 1)
+)
