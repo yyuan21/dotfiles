@@ -1,0 +1,22 @@
+# Displays possible completions using different colors to indicate file types.
+set colored-stats On
+
+# Sets auto-completion to ignore cases.
+set completion-ignore-case On
+
+# Sets every completion which is a symbolic link to a directory to have a
+# slash appended.
+set mark-symlinked-directories On
+
+# Sets the completions to be listed immediately instead of ringing the bell,
+# when the completing word has more than one possible completion.
+set show-all-if-ambiguous On
+
+# Sets the completions to be listed immediately instead of ringing the bell,
+# when the completing word has more than one possible completion but no partial
+# completion can be made.
+set show-all-if-unmodified On
+
+# Sets completions to be appended by characters that indicate their file types
+# reported by the stat system call.
+set visible-stats On
