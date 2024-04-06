@@ -5,3 +5,5 @@ fi
 
 # Turn off bell.
 bind 'set bell-style none'
+
+source ~/.bash/theme.bash
