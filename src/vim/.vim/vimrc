@@ -12,3 +12,6 @@ set textwidth=80
 
 " Show row/col.
 set ruler
+
+" Highlight search
+set hlsearch

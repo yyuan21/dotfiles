@@ -1,3 +1,4 @@
+# Color code taken from "bash-it" project.
 black="\[\e[0;30m\]"
 red="\[\e[0;31m\]"
 green="\[\e[0;32m\]"
