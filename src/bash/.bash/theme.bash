@@ -1,4 +1,4 @@
-source ~/.bash/colors.bash
+source "${MY_BASH_DOT_BASE}/lib/colors.bash"
 
 # bash displays the primary prompt PS1 when it is ready to read a command, and
 # the secondary prompt PS2 when it needs more input to complete a command.
