@@ -1,3 +1,5 @@
+source ~/.bash/colors.bash
+
 # bash displays the primary prompt PS1 when it is ready to read a command, and
 # the secondary prompt PS2 when it needs more input to complete a command.
 
@@ -30,6 +32,32 @@
 #     a terminal control sequence into the prompt
 # \]: end a sequence of non-printing characters
 
+# Title text of the terminal.
 TITLEBAR="\[\033]0;\w\007\]"
 
-PS1="${TITLEBAR}\u@\h: [\w] \$ "
+function error_code() {
+    retval=$?
+    if [[ retval -eq 0 ]]; then
+        echo -e "${bold_green}:)${reset_color}"
+    else
+        echo -e "${bold_red}$retval${reset_color}"
+    fi
+}
+
+function user_and_host() {
+    echo -e "${yellow}\u@\h${normal}"
+}
+
+function curr_path() {
+    echo -e "${cyan}\w${normal}"
+}
+
+function generate_prompt() {
+    prompt="┌─ $(error_code) $(user_and_host) [$(curr_path)]\n└─▪ "
+
+    # PS1 is the primary prompt, PS2 is secondary (multiline command)
+    PS1="${TITLEBAR}${prompt}"
+    PS2="└─▪ "
+}
+
+PROMPT_COMMAND=generate_prompt
