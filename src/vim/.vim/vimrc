@@ -1,0 +1,14 @@
+" Turns on syntax highlighting and load any available file plugins.
+syntax on
+filetype plugin on
+
+" Tabs settings.
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Autowrap text.
+set textwidth=80
+
+" Show row/col.
+set ruler
