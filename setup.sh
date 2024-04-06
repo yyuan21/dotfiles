@@ -19,7 +19,7 @@ for project in "${ACTIVE_LIST[@]}"; do
     dotfiles=$(find $project_path -maxdepth 1 ! -path $project_path -name ".*")
     for df in $dotfiles; do
 	symbname=~/$(basename $df)
-	ln -s $df $symbname
+	ln -sf $df $symbname
 	printf "Symlink created: ${GREEN}%s${NORMAL} -> ${GREEN}%s${NORMAL}\n" "$symbname" "$df"
     done
 done

@@ -1,7 +1,4 @@
-# Load private settings if we have one.
-if [ -f $HOME/.bashrc.private ]; then
-    source $HOME/.bashrc.private
+# Load from main source.
+if [ -f $HOME/.bash/main.bash ]; then
+    source $HOME/.bash/main.bash
 fi
-
-# Turn off bell.
-bind 'set bell-style none'
