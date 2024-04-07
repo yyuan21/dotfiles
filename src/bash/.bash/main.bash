@@ -4,7 +4,7 @@ if [ -f $HOME/.bashrc.private ]; then
 fi
 
 # Publish our location.
-export MY_BASH_DOT_BASE="$PWD"
+export MY_BASH_DOT_BASE="$HOME/.bash"
 
 # Turn off bell.
 bind 'set bell-style none'
