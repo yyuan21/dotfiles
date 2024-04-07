@@ -31,59 +31,68 @@ set -g message-command-style bg=brightblack,fg=cyan
 # #(shell-command)    First line of the shell command's output
 # #[attributes]       Color or attribute change
 
-#set -g status-left "#[fg=green]Session: #S #[fg=yellow]W:#I #[fg=cyan]P:#P"
-#set -g status-right "#[fg=cyan]%a %Y-%m-%d %H:%M"
+%hidden RIGHT_ARROW1=""
+%hidden RIGHT_ARROW2=""
+%hidden LEFT_ARROW1=""
+%hidden LEFT_ARROW2=""
 
-set-environment -g ST_BAR_COLOR_BG "black"
+%hidden DATE_FMT="%Y-%m-%d"
+%hidden TIME_FMT="%I:%M %p"
 
-set-environment -g TMUX_STATUS_RIGHT_ARROW1 ""
-set-environment -g TMUX_STATUS_RIGHT_ARROW2 ""
-set-environment -g TMUX_STATUS_LEFT_ARROW1 ""
-set-environment -g TMUX_STATUS_LEFT_ARROW2 ""
-set-environment -g TMUX_STATUS_DATE_FMT "%Y-%m-%d"
-set-environment -g TMUX_STATUS_TIME_FMT "%I:%M %p"
+# Status bar background color.
+%hidden STATUS_BAR_BG="black"
 
-set-environment -g ARROW_COLOR_CODES "nobold,noitalics,nounderscore"
+# Status bar left: left most section (session name).
+%hidden STATUS_LEFTMOST_BG="blue"                   # BG color
+%hidden STATUS_LEFTMOST_FONT_FG="black"             # Font color
 
-# Status left
-set-environment -g STL_COLOR_BG "blue"
-set-environment -g STL_COLOR_FONT_FG "black"
-set-environment -g STL_COLOR_FONT "#[fg=${STL_COLOR_FONT_FG},bg=${STL_COLOR_BG},bold]"
-set-environment -g STL_COLOR_ARROW_RIGHT "#[fg=${STL_COLOR_BG},bg=${ST_BAR_COLOR_BG},${ARROW_COLOR_CODES}]"
-set -g status-left "${STL_COLOR_FONT} #S ${STL_COLOR_ARROW_RIGHT}${TMUX_STATUS_RIGHT_ARROW1}"
+# Status bar right: left side sections (date, time, etc.).
+%hidden STATUS_RIGHT_LEFT_SECS_BG="brightblack"     # BG color
+%hidden STATUS_RIGHT_LEFT_SECS_FONT_FG="white"      # Font color
+
+# Status bar right: right most section (hostname).
+%hidden STATUS_RIGHTMOST_BG="cyan"                  # BG color
+%hidden STATUS_RIGHTMOST_FONT_FG="black"            # Font color
+
+# Windows list: inactive
+%hidden WINDOW_INACTIVE_BG="brightblack"            # BG color
+%hidden WINDOW_INACTIVE_FONT_FG="white"             # Font color
+
+# Windows list: active
+%hidden WINDOW_ACTIVE_BG="cyan"                     # BG color
+%hidden WINDOW_ACTIVE_FONT_FG="black"               # Font color
+
+%hidden ARROW_COLOR_CODES="nobold,noitalics,nounderscore"
+
+# Status left (session name)
+%hidden STATUS_LEFTMOST_FONT="#[fg=${STATUS_LEFTMOST_FONT_FG},bg=${STATUS_LEFTMOST_BG},bold]"
+%hidden STATUS_LEFTMOST_ARROW_RIGHT="#[fg=${STATUS_LEFTMOST_BG},bg=${STATUS_BAR_BG},${ARROW_COLOR_CODES}]"
+set -g status-left "${STATUS_LEFTMOST_FONT} #S ${STATUS_LEFTMOST_ARROW_RIGHT}${RIGHT_ARROW1}"
 
 # Status right
-set-environment -g STR_COLOR_BG_LEFT "brightblack"
-set-environment -g STR_COLOR_FONT_FG_LEFT "white"
-set-environment -g STR_COLOR_FONT_LEFT "#[fg=${STR_COLOR_FONT_FG_LEFT},bg=${STR_COLOR_BG_LEFT}]"
-set-environment -g STR_COLOR_ARROW_LEFT_LEFT "#[fg=${STR_COLOR_BG_LEFT},bg=${ST_BAR_COLOR_BG},${ARROW_COLOR_CODES}]"
-set-environment -g STR_COLOR_ARROW_LEFT_RIGHT "#[fg=${STR_COLOR_FONT_FG_LEFT},bg=${STR_COLOR_BG_LEFT},${ARROW_COLOR_CODES}]"
+%hidden STATUS_RIGHT_LEFT_SECS_FONT="#[fg=${STATUS_RIGHT_LEFT_SECS_FONT_FG},bg=${STATUS_RIGHT_LEFT_SECS_BG}]"
+%hidden STATUS_RIGHT_LEFT_SECS_ARROW_LEFT="#[fg=${STATUS_RIGHT_LEFT_SECS_BG},bg=${STATUS_BAR_BG},${ARROW_COLOR_CODES}]"
+%hidden STATUS_RIGHT_LEFT_SECS_ARROW_RIGHT="#[fg=${STATUS_RIGHT_LEFT_SECS_FONT_FG},bg=${STATUS_RIGHT_LEFT_SECS_BG},${ARROW_COLOR_CODES}]"
 
-set-environment -g STR_COLOR_BG_RIGHT "cyan"
-set-environment -g STR_COLOR_FONT_FG_RIGHT "black"
-set-environment -g STR_COLOR_FONT_RIGHT "#[fg=${STR_COLOR_FONT_FG_RIGHT},bg=${STR_COLOR_BG_RIGHT},bold]"
-set-environment -g STR_COLOR_ARROW_RIGHT_LEFT "#[fg=${STR_COLOR_BG_RIGHT},bg=${STR_COLOR_BG_LEFT},${ARROW_COLOR_CODES}]"
+%hidden STATUS_RIGHTMOST_FONT="#[fg=${STATUS_RIGHTMOST_FONT_FG},bg=${STATUS_RIGHTMOST_BG},bold]"
+%hidden STATUS_RIGHTMOST_ARROW_LEFT="#[fg=${STATUS_RIGHTMOST_BG},bg=${STATUS_RIGHT_LEFT_SECS_BG},${ARROW_COLOR_CODES}]"
 
-set -g status-right "${STR_COLOR_ARROW_LEFT_LEFT}${TMUX_STATUS_LEFT_ARROW1}${STR_COLOR_FONT_LEFT} ${TMUX_STATUS_DATE_FMT} ${STR_COLOR_ARROW_LEFT_RIGHT}${TMUX_STATUS_LEFT_ARROW2}${STR_COLOR_FONT_LEFT} ${TMUX_STATUS_TIME_FMT} ${STR_COLOR_ARROW_RIGHT_LEFT}${TMUX_STATUS_LEFT_ARROW1}${STR_COLOR_FONT_RIGHT} #h "
+set -g status-right "${STATUS_RIGHT_LEFT_SECS_ARROW_LEFT}${LEFT_ARROW1}${STATUS_RIGHT_LEFT_SECS_FONT} ${DATE_FMT} ${STATUS_RIGHT_LEFT_SECS_ARROW_RIGHT}${LEFT_ARROW2}${STATUS_RIGHT_LEFT_SECS_FONT} ${TIME_FMT} ${STATUS_RIGHTMOST_ARROW_LEFT}${LEFT_ARROW1}${STATUS_RIGHTMOST_FONT} #h "
 
 # Window list
-set-environment -g WD_COLOR_BG "brightblack"
-set-environment -g WD_COLOR_FONT_FG "white"
-set-environment -g WD_COLOR_FONT "#[fg=${WD_COLOR_FONT_FG},bg=${WD_COLOR_BG}]"
-set-environment -g WD_COLOR_ARROW_LEFT "#[fg=${ST_BAR_COLOR_BG},bg=${WD_COLOR_BG},${ARROW_COLOR_CODES}]"
-set-environment -g WD_COLOR_ARROW_MID "#[fg=${WD_COLOR_FONT_FG},bg=${WD_COLOR_BG},${ARROW_COLOR_CODES}]"
-set-environment -g WD_COLOR_ARROW_RIGHT "#[fg=${WD_COLOR_BG},bg=${ST_BAR_COLOR_BG},${ARROW_COLOR_CODES}]"
+%hidden WINDOW_INACTIVE_FONT="#[fg=${WINDOW_INACTIVE_FONT_FG},bg=${WINDOW_INACTIVE_BG}]"
+%hidden WINDOW_INACTIVE_ARROW_LEFT="#[fg=${STATUS_BAR_BG},bg=${WINDOW_INACTIVE_BG},${ARROW_COLOR_CODES}]"
+%hidden WINDOW_INACTIVE_ARROW_MID="#[fg=${WINDOW_INACTIVE_FONT_FG},bg=${WINDOW_INACTIVE_BG},${ARROW_COLOR_CODES}]"
+%hidden WINDOW_INACTIVE_ARROW_RIGHT="#[fg=${WINDOW_INACTIVE_BG},bg=${STATUS_BAR_BG},${ARROW_COLOR_CODES}]"
 
-set -g window-status-format "${WD_COLOR_ARROW_LEFT}${TMUX_STATUS_RIGHT_ARROW1} ${WD_COLOR_FONT}#I ${WD_COLOR_ARROW_MID}${TMUX_STATUS_RIGHT_ARROW2} ${WD_COLOR_FONT}#W #F ${WD_COLOR_ARROW_RIGHT}${TMUX_STATUS_RIGHT_ARROW1}"
+set -g window-status-format "${WINDOW_INACTIVE_ARROW_LEFT}${RIGHT_ARROW1} ${WINDOW_INACTIVE_FONT}#I ${WINDOW_INACTIVE_ARROW_MID}${RIGHT_ARROW2} ${WINDOW_INACTIVE_FONT}#W #F ${WINDOW_INACTIVE_ARROW_RIGHT}${RIGHT_ARROW1}"
 
 # Current window
-set-environment -g CUR_WD_COLOR_BG "cyan"
-set-environment -g CUR_WD_COLOR_FONT_FG "black"
-set-environment -g CUR_WD_COLOR_FONT "#[fg=${CUR_WD_COLOR_FONT_FG},bg=${CUR_WD_COLOR_BG}]"
-set-environment -g CUR_WD_COLOR_ARROW_LEFT "#[fg=${ST_BAR_COLOR_BG},bg=${CUR_WD_COLOR_BG},${ARROW_COLOR_CODES}]"
-set-environment -g CUR_WD_COLOR_ARROW_MID "#[fg=${CUR_WD_COLOR_FONT_FG},bg=${CUR_WD_COLOR_BG},${ARROW_COLOR_CODES}]"
-set-environment -g CUR_WD_COLOR_ARROW_RIGHT "#[fg=${CUR_WD_COLOR_BG},bg=${ST_BAR_COLOR_BG},${ARROW_COLOR_CODES}]"
+%hidden WINDOW_ACTIVE_FONT="#[fg=${WINDOW_ACTIVE_FONT_FG},bg=${WINDOW_ACTIVE_BG}]"
+%hidden WINDOW_ACTIVE_ARROW_LEFT="#[fg=${STATUS_BAR_BG},bg=${WINDOW_ACTIVE_BG},${ARROW_COLOR_CODES}]"
+%hidden WINDOW_ACTIVE_ARROW_MID="#[fg=${WINDOW_ACTIVE_FONT_FG},bg=${WINDOW_ACTIVE_BG},${ARROW_COLOR_CODES}]"
+%hidden WINDOW_ACTIVE_ARROW_RIGHT="#[fg=${WINDOW_ACTIVE_BG},bg=${STATUS_BAR_BG},${ARROW_COLOR_CODES}]"
 
-set -g window-status-current-format "${CUR_WD_COLOR_ARROW_LEFT}${TMUX_STATUS_RIGHT_ARROW1} ${CUR_WD_COLOR_FONT}#I ${CUR_WD_COLOR_ARROW_MID}${TMUX_STATUS_RIGHT_ARROW2} ${CUR_WD_COLOR_FONT}#W #F ${CUR_WD_COLOR_ARROW_RIGHT}${TMUX_STATUS_RIGHT_ARROW1}"
+set -g window-status-current-format "${WINDOW_ACTIVE_ARROW_LEFT}${RIGHT_ARROW1} ${WINDOW_ACTIVE_FONT}#I ${WINDOW_ACTIVE_ARROW_MID}${RIGHT_ARROW2} ${WINDOW_ACTIVE_FONT}#W #F ${WINDOW_ACTIVE_ARROW_RIGHT}${RIGHT_ARROW1}"
 set -g window-status-separator ""
 
