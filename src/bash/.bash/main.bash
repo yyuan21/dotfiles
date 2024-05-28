@@ -14,3 +14,6 @@ source "${MY_BASH_DOT_BASE}/lib/scm.bash"
 
 # Load theme.
 source "${MY_BASH_DOT_BASE}/theme.bash"
+
+# Load aliases.
+source "${MY_BASH_DOT_BASE}/aliases.bash"
