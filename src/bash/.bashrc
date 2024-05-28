@@ -1,9 +1,9 @@
 # Load from main source.
 
 function load_if_exists() {
-    local PATH=$1
-    if [ -f $PATH ]; then
-        source "$PATH"
+    local TOLOAD=$1
+    if [[ -f "$TOLOAD" ]]; then
+        source "$TOLOAD"
     fi
 }
 
