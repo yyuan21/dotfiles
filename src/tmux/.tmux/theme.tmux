@@ -31,11 +31,18 @@ set -g message-command-style bg=brightblack,fg=cyan
 # #(shell-command)    First line of the shell command's output
 # #[attributes]       Color or attribute change
 
+set -g status-left-length 30
+set -g status-right-length 100
+
 %hidden RIGHT_ARROW1=""
 %hidden RIGHT_ARROW2=""
 %hidden LEFT_ARROW1=""
 %hidden LEFT_ARROW2=""
 
+%hidden DU_TOTAL="#(df -h / | awk 'NR==2 {print $2}')"
+%hidden DU_USED="#(df -h / | awk 'NR==2 {print $3}')"
+%hidden DU_PERC="#(df -h / | awk 'NR==2 {print $5}')"
+%hidden DISK_USAGE="DU: ${DU_USED}/${DU_TOTAL} (${DU_PERC})"
 %hidden DATE_FMT="%Y-%m-%d"
 %hidden TIME_FMT="%I:%M %p"
 
@@ -77,7 +84,10 @@ set -g status-left "${STATUS_LEFTMOST_FONT} #S ${STATUS_LEFTMOST_ARROW_RIGHT}${R
 %hidden STATUS_RIGHTMOST_FONT="#[fg=${STATUS_RIGHTMOST_FONT_FG},bg=${STATUS_RIGHTMOST_BG},bold]"
 %hidden STATUS_RIGHTMOST_ARROW_LEFT="#[fg=${STATUS_RIGHTMOST_BG},bg=${STATUS_RIGHT_LEFT_SECS_BG},${ARROW_COLOR_CODES}]"
 
-set -g status-right "${STATUS_RIGHT_LEFT_SECS_ARROW_LEFT}${LEFT_ARROW1}${STATUS_RIGHT_LEFT_SECS_FONT} ${DATE_FMT} ${STATUS_RIGHT_LEFT_SECS_ARROW_RIGHT}${LEFT_ARROW2}${STATUS_RIGHT_LEFT_SECS_FONT} ${TIME_FMT} ${STATUS_RIGHTMOST_ARROW_LEFT}${LEFT_ARROW1}${STATUS_RIGHTMOST_FONT} #h "
+# Middle separator for left side of the right status (disk usage, date, time, etc)
+%hidden SRL_MID_SEP="${STATUS_RIGHT_LEFT_SECS_ARROW_RIGHT}${LEFT_ARROW2}${STATUS_RIGHT_LEFT_SECS_FONT}"
+
+set -g status-right "${STATUS_RIGHT_LEFT_SECS_ARROW_LEFT}${LEFT_ARROW1}${STATUS_RIGHT_LEFT_SECS_FONT} ${DISK_USAGE} ${SRL_MID_SEP} ${DATE_FMT} ${SRL_MID_SEP} ${TIME_FMT} ${STATUS_RIGHTMOST_ARROW_LEFT}${LEFT_ARROW1}${STATUS_RIGHTMOST_FONT} #h "
 
 # Window list
 %hidden WINDOW_INACTIVE_FONT="#[fg=${WINDOW_INACTIVE_FONT_FG},bg=${WINDOW_INACTIVE_BG}]"
@@ -95,4 +105,3 @@ set -g window-status-format "${WINDOW_INACTIVE_ARROW_LEFT}${RIGHT_ARROW1} ${WIND
 
 set -g window-status-current-format "${WINDOW_ACTIVE_ARROW_LEFT}${RIGHT_ARROW1} ${WINDOW_ACTIVE_FONT}#I ${WINDOW_ACTIVE_ARROW_MID}${RIGHT_ARROW2} ${WINDOW_ACTIVE_FONT}#W #F ${WINDOW_ACTIVE_ARROW_RIGHT}${RIGHT_ARROW1}"
 set -g window-status-separator ""
-

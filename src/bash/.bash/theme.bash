@@ -52,9 +52,17 @@ function curr_path() {
     echo -e "${echo_cyan}\w${echo_normal}"
 }
 
+function ade_viewname() {
+    if [ "$ADE_VIEW_NAME" ]; then
+        echo -e "[${echo_bold_purple}${ADE_VIEW_NAME}${echo_normal}] "
+    else
+        echo -e ""
+    fi
+}
+
 function generate_prompt() {
     # Prompt line.
-    local prompt="┌─ $(error_code) $(user_host) [$(curr_path)]\n└─▪ "
+    local prompt="┌─ $(error_code) $(ade_viewname)$(user_host) [$(curr_path)]\n└─▪ "
 
     # PS1 is the primary prompt, PS2 is secondary (multiline command)
     PS1="${term_title}${prompt}"

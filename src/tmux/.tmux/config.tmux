@@ -17,3 +17,6 @@ set -g visual-activity on
 
 # Enable emacs mode
 setw -g mode-keys emacs
+
+# increase repeat timeout (ms) (default: 500)
+set -sg repeat-time 600

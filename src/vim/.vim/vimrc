@@ -1,17 +1,136 @@
+if has('cscope')
+  set csprg=/usr/local/bin/cscope
+endif
+
 " Turns on syntax highlighting and load any available file plugins.
 syntax on
 filetype plugin on
+filetype plugin indent on
+
+set termguicolors
+set background=light
+colorscheme gruvbox
+
+set visualbell
+
+" Status line always show.
+set laststatus=2
 
 " Tabs settings.
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
-" Autowrap text.
-set textwidth=80
+" Enable auto and smart indentation
+set autoindent
+set smartindent
+
+" Enable wild menu (enhances the command-line completion interface)
+set wildmenu
+set wildignorecase
+set wildmode=longest,list,full
+set wildignore=*.o,*~,*.pyc
+
+" Enable standard C-style indentation.
+" Use smart indenting.
+" Align continued lines with the start of the block or parameter list.
+set cinoptions=c,s,+0
+
+" Autowrap text at certain width, and add a vertical highlight ruler for it.
+autocmd FileType c,cpp setlocal textwidth=79
+"set colorcolumn=+1
+highlight ColorColumn ctermbg=lightgrey guibg=#e0e0e0
 
 " Show row/col.
 set ruler
 
-" Highlight search
+" Highlight search.
 set hlsearch
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+" Leader key
+let mapleader = "\\"
+
+" Vertical split: new window on the right
+set splitright
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd WinEnter,BufWinEnter,InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Automatically remove any trailing whitespace for some file types.
+" autocmd FileType h,c,cpp,py autocmd BufWritePre <buffer> %s/\s\+$//e
+
+" Replace <esc> with either jk or kj.
+inoremap jk <esc>
+inoremap kj <esc>
+
+" Right align text to textwidth.
+nnoremap <Leader>r :right<CR>
+vnoremap <Leader>r :right<CR>
+
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowb
+set noswapfile
+
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" " Always show the status line
+set laststatus=2
+
+" " Format the status line
+set statusline=%y\ %{HasPaste()}%f\ %m%r%h\ %w\ \ Line:\ %l\ \ Column:\ %c
+
+" nerdcommenter setups
+let g:NERDSpaceDelims = 1
+
+""""""""""""""""""""""""""""""
+" => Window resize
+""""""""""""""""""""""""""""""
+" Resize splits using <C-w> followed by H/J/K/L
+nnoremap <C-w>H :vertical resize +5<CR>
+nnoremap <C-w>J :resize +5<CR>
+nnoremap <C-w>K :resize -5<CR>
+nnoremap <C-w>L :vertical resize -5<CR>
+
+" Equalize window sizes
+nnoremap <C-w>= :wincmd =<CR>
+
+""""""""""""""""""""""""""""""
+" => Visual mode related
+""""""""""""""""""""""""""""""
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction
+
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ack '" . l:pattern . "' " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
