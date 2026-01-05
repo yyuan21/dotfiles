@@ -9,7 +9,7 @@ filetype plugin indent on
 
 set termguicolors
 set background=light
-colorscheme gruvbox
+colorscheme sorbet
 
 set visualbell
 
@@ -56,8 +56,42 @@ let mapleader = "\\"
 " Vertical split: new window on the right
 set splitright
 
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" highlight OverLength ctermbg=red guibg=red
+" highlight TabCheck ctermbg=red guibg=red
+
+" autocmd WinEnter,BufWinEnter,InsertLeave * call matchadd('ExtraWhitespace', '\s\+$')
+" autocmd WinEnter,BufWinEnter,InsertLeave * call matchadd('OverLength', '\%>80v.\+')
+" autocmd WinEnter,BufWinEnter,InsertLeave * call matchadd('TabCheck', '\t')
+
+highlight OverLength ctermbg=red guibg=red
 highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd WinEnter,BufWinEnter,InsertLeave * match ExtraWhitespace /\s\+$/
+highlight TabCheck ctermbg=red guibg=red
+
+function! HighlightChecks()
+  " Clear previous matches if any
+  if exists('b:overlength_match_id')
+    silent! call matchdelete(b:overlength_match_id)
+    unlet b:overlength_match_id
+  endif
+  if exists('b:extrawhitespace_match_id')
+    silent! call matchdelete(b:extrawhitespace_match_id)
+    unlet b:extrawhitespace_match_id
+  endif
+  if exists('b:tabcheck_match_id')
+    silent! call matchdelete(b:tabcheck_match_id)
+    unlet b:tabcheck_match_id
+  endif
+
+  " Apply matches only to specified filetypes
+  if expand('%:e') =~? '\v^(h|c|cpp|py)$'
+    let b:overlength_match_id = matchadd('OverLength', '\%>80v.\+')
+    let b:extrawhitespace_match_id = matchadd('ExtraWhitespace', '\s\+$')
+    let b:tabcheck_match_id = matchadd('TabCheck', '\t')
+  endif
+endfunction
+
+autocmd WinEnter,BufWinEnter,InsertLeave * call HighlightChecks()
 
 " Automatically remove any trailing whitespace for some file types.
 " autocmd FileType h,c,cpp,py autocmd BufWritePre <buffer> %s/\s\+$//e
