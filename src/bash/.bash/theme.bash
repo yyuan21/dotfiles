@@ -63,7 +63,9 @@ function ade_viewname() {
 function git_info() {
     local git="$(__git_ps1 '%s')"
     if [[ -n "$git" ]]; then
-        echo -e "${echo_green}(${git})${echo_reset_color} "
+        local count
+        count=$(git rev-list --count HEAD 2>/dev/null) || return
+        echo -e " ${echo_green}(${git} +${count})${echo_reset_color} "
     fi
 }
 
