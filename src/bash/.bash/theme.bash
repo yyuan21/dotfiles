@@ -52,6 +52,12 @@ function curr_path() {
     echo -e "${echo_cyan}\w${echo_normal}"
 }
 
+function venv_info() {
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        echo -e " ${echo_purple}($(basename "$VIRTUAL_ENV"))${echo_reset_color}"
+    fi
+}
+
 function ade_viewname() {
     if [ "$ADE_VIEW_NAME" ]; then
         echo -e "[${echo_bold_purple}${ADE_VIEW_NAME}${echo_normal}] "
@@ -65,7 +71,7 @@ function git_info() {
     if [[ -n "$git" ]]; then
         local count
         count=$(git rev-list --count HEAD 2>/dev/null) || return
-        echo -e " ${echo_green}(${git} +${count})${echo_reset_color} "
+        echo -e " ${echo_green}(${git} +${count})${echo_reset_color}"
     fi
 }
 
@@ -73,7 +79,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 
 function generate_prompt() {
     # Prompt line.
-    local prompt="┌─ $(error_code) $(ade_viewname)$(user_host) [$(curr_path)]$(git_info)\n└─▪ "
+    local prompt="┌─ $(error_code) $(ade_viewname)$(user_host) [$(curr_path)]$(git_info)$(venv_info)\n└─▪ "
 
     # PS1 is the primary prompt, PS2 is secondary (multiline command)
     PS1="${term_title}${prompt}"
