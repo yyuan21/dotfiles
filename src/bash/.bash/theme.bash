@@ -60,9 +60,18 @@ function ade_viewname() {
     fi
 }
 
+function git_info() {
+    local git="$(__git_ps1 '%s')"
+    if [[ -n "$git" ]]; then
+        echo -e "${echo_green}(${git})${echo_reset_color} "
+    fi
+}
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+
 function generate_prompt() {
     # Prompt line.
-    local prompt="┌─ $(error_code) $(ade_viewname)$(user_host) [$(curr_path)]\n└─▪ "
+    local prompt="┌─ $(error_code) $(ade_viewname)$(user_host) [$(curr_path)]$(git_info)\n└─▪ "
 
     # PS1 is the primary prompt, PS2 is secondary (multiline command)
     PS1="${term_title}${prompt}"

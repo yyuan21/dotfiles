@@ -9,6 +9,7 @@ bind 'set bell-style none'
 
 # Load lib functions
 source "${MY_BASH_DOT_BASE}/lib/scm.bash"
+source "${MY_BASH_DOT_BASE}/lib/git-prompt.sh"
 
 # Load theme.
 source "${MY_BASH_DOT_BASE}/theme.bash"
