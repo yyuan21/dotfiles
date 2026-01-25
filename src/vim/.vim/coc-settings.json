@@ -1,0 +1,7 @@
+{
+  "clangd.path": "/opt/homebrew/opt/llvm/bin/clangd",
+  "clangd.arguments": [
+    "--background-index",
+    "--compile-commands-dir=build"
+  ]
+}
