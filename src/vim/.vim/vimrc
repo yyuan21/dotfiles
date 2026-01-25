@@ -6,6 +6,8 @@ call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 " Turns on syntax highlighting and load any available file plugins.
@@ -14,8 +16,8 @@ filetype plugin on
 filetype plugin indent on
 
 set termguicolors
-set background=light
-colorscheme sorbet
+set background=dark
+colorscheme gruvbox
 
 set visualbell
 
