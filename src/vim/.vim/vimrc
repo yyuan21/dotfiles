@@ -17,6 +17,8 @@ filetype plugin indent on
 
 set termguicolors
 set background=dark
+" Optional: Set the contrast (soft, medium, or hard)
+let g:gruvbox_contrast_dark = 'medium'
 colorscheme gruvbox
 
 set visualbell
