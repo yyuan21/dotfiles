@@ -2,6 +2,12 @@ if has('cscope')
   set csprg=/usr/local/bin/cscope
 endif
 
+call plug#begin()
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
 " Turns on syntax highlighting and load any available file plugins.
 syntax on
 filetype plugin on

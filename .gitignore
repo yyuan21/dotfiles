@@ -42,3 +42,6 @@ src/emacs/.emacs.d/smex-items
 
 # multiple-cursors history
 src/emacs/.emacs.d/.mc-lists.el
+
+# Vim plugin
+src/vim/.vim/plugged/
