@@ -10,6 +10,11 @@ Plug 'morhetz/gruvbox'
 
 call plug#end()
 
+" Use the NFA regex engine — the old engine freezes on TS/JS syntax files.
+set re=0
+" Stop highlighting past column 300 — prevents stalls on long lines.
+set synmaxcol=300
+
 " Turns on syntax highlighting and load any available file plugins.
 syntax on
 filetype plugin on

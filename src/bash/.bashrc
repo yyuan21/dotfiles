@@ -13,6 +13,8 @@ load_if_exists "$HOME/.bash/main.bash"
 # Load Rust cargo env.
 load_if_exists "$HOME/.cargo/env"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # LLVM settings
 if [[ -d "/opt/homebrew/opt/llvm" ]]; then
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
