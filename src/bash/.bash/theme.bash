@@ -55,6 +55,8 @@ function curr_path() {
 function venv_info() {
     if [[ -n "$VIRTUAL_ENV" ]]; then
         echo -e " ${echo_purple}($(basename "$VIRTUAL_ENV"))${echo_reset_color}"
+    elif [[ -n "$CONDA_DEFAULT_ENV" ]]; then
+        echo -e " ${echo_purple}(${CONDA_DEFAULT_ENV})${echo_reset_color}"
     fi
 }
 
